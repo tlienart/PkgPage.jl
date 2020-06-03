@@ -2,6 +2,8 @@
 
 Create a webpage for your package in minutes.
 
+**Authors**: Thibaut Lienart, Vlatan Vasović
+
 ## DEV
 
 * Go to `/sandbox/` and start Franklin
