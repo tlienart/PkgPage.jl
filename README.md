@@ -2,7 +2,7 @@
 
 Create a webpage for your package in minutes.
 
-**Authors**: Thibaut Lienart, Vlatan Vasović
+**Authors**: Thibaut Lienart, Zlatan Vasović
 
 ## DEV
 
