@@ -1,9 +1,20 @@
 <!-- CONTENT ENDS HERE -->
-    {{ if hasmath }}
-        {{ insert foot_katex.html }}
-    {{ end }}
-    {{ if hascode }}
-        {{ insert foot_highlight.html }}
-    {{ end }}
-  </main>
+  {{ if hasmath }}
+      {{ insert foot_katex.html }}
+  {{ end }}
+  {{ if hascode }}
+      {{ insert foot_highlight.html }}
+  {{ end }}
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/libs/jquery/jquery.min.js"></script>
+  <script src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/libs/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="/libs/scrolling-nav.js"></script>
+
+  </body>
 </html>

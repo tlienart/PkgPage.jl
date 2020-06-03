@@ -1,0 +1,13 @@
+<!-- This file is included by `index.md` -->
+
+## Performances
+
+\lead{
+This is a great place to talk about the performances of your package!
+}
+
+* it's much faster than python
+* definitely faster
+* so much faster
+
+$$ \exp(i\pi) + 1 = 0 $$

@@ -1,0 +1,10 @@
+<!-- This file is included by `index.md` -->
+
+## About this package
+
+\lead{
+All these good people use the package!
+}
+
+* Person A
+* Person B
