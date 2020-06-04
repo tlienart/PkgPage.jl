@@ -14,6 +14,10 @@ Create a webpage for your package in minutes.
   - inclusion of small, medium, large image
   - small grid of people
 * [ ] make sure the instructions are dead simple
+* [ ] add github workflow stuff with project by default
+* [ ] fix prepath (project by default)
+* [ ] indicate that this is expected to be hosted by github page
+  - if not (self-hosted) need to do (a,b,c)
 
 ## Steps
 

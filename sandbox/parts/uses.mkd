@@ -1,6 +1,4 @@
-<!-- This file is included by `index.md` -->
-
-## About this package
+## Users
 
 \lead{
 All these good people use the package!

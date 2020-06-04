@@ -1,4 +1,4 @@
-html(s) = "~~~$s~~~"
+html(s) = "\n~~~$s~~~\n"
 
 function lx_section(com, _)
     counter = globvar("section_counter")
@@ -17,8 +17,8 @@ function lx_section(com, _)
                   <div class="container">
                     <div class="row">
                       <div class="col-lg-8 mx-auto">
-                \n""")
-    bottom = html("""\n
+                """)
+    bottom = html("""
                       </div>
                     </div>
                   </div>
