@@ -12,7 +12,10 @@ section {
   line-height: 30px;
   margin-bottom: 16px;
   margin-top: 0;
-  text-align: left;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Franklin specific */
