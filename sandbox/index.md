@@ -1,6 +1,6 @@
 
-\section{about: parts/about.mkd}
+\section{About => parts/about.mkd}
 
-\section{perf: parts/perf.mkd}
+\section{Performances => parts/perf.mkd}
 
-\section{uses: parts/uses.mkd}
+\section{User base => parts/users.mkd}

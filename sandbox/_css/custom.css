@@ -1,3 +1,22 @@
+header {
+  padding: 156px 0 100px;
+}
+
+section {
+  padding: 150px 0;
+}
+
+.lead {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 30px;
+  margin-bottom: 16px;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* Franklin specific */
+
 .franklin-content ul li p {
 margin:0;
 }

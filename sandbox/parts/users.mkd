@@ -1,8 +1,8 @@
-## Users
+## User base
 
-\lead{
+@@lead
 All these good people use the package!
-}
+@@
 
 * Person A
 * Person B
