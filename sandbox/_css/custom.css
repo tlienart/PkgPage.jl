@@ -1,3 +1,8 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
 header {
   padding: 156px 0 100px;
 }
@@ -6,20 +11,26 @@ section {
   padding: 150px 0;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+#navbar-toggler-cbox:checked ~ .collapse {
+    display:block;
+}
+
+#navbarResponsive .active {
+	color: #fff;
+}
+
+.franklin-content ul li p {
+	margin: 0;
+}
+
 .lead {
   font-size: 20px;
   font-weight: 300;
   line-height: 30px;
   margin-bottom: 16px;
   margin-top: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Franklin specific */
-
-.franklin-content ul li p {
-margin:0;
 }

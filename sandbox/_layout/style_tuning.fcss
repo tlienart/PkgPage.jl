@@ -1,0 +1,11 @@
+.bg-primary {
+  background-color: {{col_header}} !important;
+}
+
+a {
+  color: {{col_link}};
+}
+
+a:hover {
+  color: {{col_link_hover}};
+}

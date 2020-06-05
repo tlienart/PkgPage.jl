@@ -2,6 +2,7 @@
 
 @@lead
 All these good people use the package!
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam. BLAH
 @@
 
 * Person A
