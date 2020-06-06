@@ -1,11 +1,19 @@
 .bg-primary {
-  background-color: {{col_header}} !important;
+  background-color: {{header_col}} !important;
 }
 
 a {
-  color: {{col_link}};
+  color: {{link_col}};
 }
 
 a:hover {
-  color: {{col_link_hover}};
+  color: {{link_hover_col}};
 }
+
+section.bg-col-2 { background-color: {{section_bg_col_2}}; }
+
+footer a {color: {{footer_link_col}}; }
+
+/* CODE ADJUSTMENTS */
+pre code.hljs { border-radius: {{code_border_radius}}; }
+pre code.hljs.plaintext { margin-left: {{code_output_indent}}; }

@@ -1,31 +1,16 @@
-/*!
- * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
- */
-header {
-  padding: 156px 0 100px;
-}
+html { scroll-behavior: smooth; }
+header { padding: 156px 0 100px; }
+section { padding: 100px 0; }
 
-section {
-  padding: 150px 0;
-}
+/* NAVBAR */
 
-html {
-	scroll-behavior: smooth;
-}
+#navbar-toggler-cbox:checked ~ .collapse { display:block; }
+#navbarResponsive .active { color: #fff; }
 
-#navbar-toggler-cbox:checked ~ .collapse {
-    display:block;
-}
+.navbar-brand a { color: ghostwhite; }
+span.navbar-brand a:hover { color: rgba(255,255,255,.5); text-decoration: none;}
 
-#navbarResponsive .active {
-	color: #fff;
-}
-
-.franklin-content ul li p {
-	margin: 0;
-}
+/* FORMATTING */
 
 .lead {
   font-size: 20px;
@@ -34,3 +19,15 @@ html {
   margin-bottom: 16px;
   margin-top: 0;
 }
+
+.franklin-content ul li p { margin: 0; }
+
+/* CODE */
+
+pre { margin-bottom: 0.5em; }
+pre code.hljs.plaintext {
+	padding-left: 20px;
+	margin-bottom: 1em;
+}
+
+/* ADD ANY SPECIFIC TWEAKS YOU MIGHT WANT HERE */

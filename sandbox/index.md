@@ -1,43 +1,84 @@
 
-<!-- ABOUT -->
+<!-- =============================
+     ABOUT
+     NOTE: title is what appears at the top of the section, the name is
+     what appears in the navbar; if not provided it will be the same as the
+     title.
+    ============================== -->
 
-\begin{:section, id="about", title="About this Package"}
+\begin{:section, title="About this Package", name="About"}
 
-@@lead
-This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:
-@@
+\lead{This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs!}
 
-* Clickable nav links that smooth scroll to page sections [a link](https://julialang.org)
-* Responsive behavior when clicking nav links perfect for a one page website
-* Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar
+* Some information [a link](https://julialang.org)
 * Minimal custom CSS blah so you are free to explore your own unique design options
 
 \end{:section}
 
-<!-- PERFORMANCES -->
+<!-- =============================
+     SHORT INTRO
+     NOTE: "named" julia code (eg `julia:usage1`) gets executed on the fly
+     and the output can be shown with `\show{usage1}`.
+    ============================== -->
+\begin{:section, title="Usage"}
 
-\begin{:section, id="Performances", title="Performances"}
+\lead{This is a short example of how you can use the amazing package}
 
-@@lead
-This is a great other place to talk about the performances of your package!
-@@
+```julia:usage1
+using DataFrames
+df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
+first(df, 3)
+```
+\show{usage1}
+
+More explanations here if useful.
+
+\end{:section}
+
+<!-- =============================
+     BACKGROUND
+     NOTE: Maths are rendered with KaTeX and can be written as you would
+     standard LaTeX (mostly).
+    ============================== -->
+\begin{:section, title="Background"}
+
+\lead{This package provides support for one-dimensional integration in Julia using Gauss-Kronrod quadrature.}
+
+The problem, amounts to approximating an integral using a weighted sum of function evaluations:
+
+$$ \int_a^b f(x) \mathrm{d}x \approx \sum_{i=1}^n w_i f(x_i) $$
+
+In the case of the Gauss-Legendre quadrature, the weights are given by
+
+$$ w_i = {2 \over (1-x_i^2)[P'_n(x_i)]^2} $$ <!--_-->
+
+where $P_n$ is the $n$-th [Legendre polynomial](https://en.wikipedia.org/wiki/Legendre_polynomials) and $x_i$ is it's $i$-th root.
+
+\end{:section}
+
+<!-- =============================
+     PERFORMANCES
+    ============================== -->
+
+\begin{:section, title="Performances"}
+
+\lead{A great place to tell people about the amazing performances of your package}
 
 * it's much faster than python
 * definitely faster
 * so much faster
 
-$$ \exp(i\pi) + 1 = 0 $$
+
 
 \end{:section}
 
-<!-- USER BASE -->
+<!-- =============================
+     USER BASE
+    ============================== -->
 
-\begin{:section, id="Users", title="User base"}
+\begin{:section, title="User base"}
 
-@@lead
-All these good people use the package!
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam. BLAH
-@@
+\lead{All these good people use the package! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.}
 
 * Person A
 * Person B

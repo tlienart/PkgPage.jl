@@ -2,5 +2,10 @@
   <div class="container text-center">
     <h1>{{title}}</h1>
     <div class="lead">{{description}}</div>
+    {{if add_github_button}}
+    <span class="btn float-md-right">
+      <a class="github-button" href="https://github.com/{{github_path}}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star {{title}} on GitHub">Star</a>
+    </span>
+    {{end}}
   </div>
 </header>
