@@ -10,7 +10,7 @@ FILL THE FOLLOWING DEFINITIONS
 @def docs_name = "Docs"
 
 @def add_github_button = true
-@def github_path       = "tlienart/Franklin.jl"
+@def github_repo       = "tlienart/Franklin.jl"
 
 @def add_nav_logo   = true
 @def nav_logo_path  = "/assets/logo.svg"
