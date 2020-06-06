@@ -64,11 +64,21 @@ where $P_n$ is the $n$-th [Legendre polynomial](https://en.wikipedia.org/wiki/Le
 
 \lead{A great place to tell people about the amazing performances of your package}
 
+Here are not one but **two** columns!
+
+\begin{:columns}
+
+\column{
 * it's much faster than python
 * definitely faster
 * so much faster
+}
+\column{
+* still better than python
+* definitely better than R
+}
 
-
+\end{:columns}
 
 \end{:section}
 

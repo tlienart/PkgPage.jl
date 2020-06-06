@@ -7,4 +7,4 @@
 import PackagePage: lx_lead
 
 # Environments
-import PackagePage: lx_begin, lx_end
+import PackagePage: lx_begin, lx_end, lx_column

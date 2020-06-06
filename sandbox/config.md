@@ -12,6 +12,12 @@ FILL THE FOLLOWING DEFINITIONS
 @def add_github_button = true
 @def github_path       = "tlienart/Franklin.jl"
 
+@def add_nav_logo   = true
+@def nav_logo_path  = "/assets/logo.svg"
+@def nav_logo_alt   = "Logo"
+@def nav_logo_style = """
+        max-height:     25px;
+        padding-right:  5px;"""
 
 <!--
 COLOR PALETTE, ADJUST AS YOU WOULD LIKE
