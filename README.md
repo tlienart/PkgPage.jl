@@ -19,6 +19,12 @@ Create a webpage for your package in < 10 minutes.
 * [ ] indicate that this is expected to be hosted by github page
   - if not (self-hosted) need to do (a,b,c)
 
+
+### Examples to draw from
+
+* junolab.org/
+* binarybuilder.org
+
 ## Steps
 
 Placeholder instructions, basically something like

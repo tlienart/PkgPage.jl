@@ -1,10 +1,6 @@
-#
-# Do not remove the first few lines, feel free
-# to add whatever you need though.
-#
+using PackagePage # do not remove this
 
-# Formatting
-import PackagePage: lx_lead
-
-# Environments
-import PackagePage: lx_begin, lx_end, lx_column
+#
+# Feel free to add whatever custom hfun_* or lx_*
+# you might want to use in your site here
+#

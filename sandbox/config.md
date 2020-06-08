@@ -55,3 +55,4 @@ of some of the commands that are defined and used in PackagePage.
 -->
 @def sections = Pair{String,String}[]
 @def section_counter = 1
+@def showall = true

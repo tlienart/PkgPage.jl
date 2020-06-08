@@ -4,7 +4,7 @@ import Franklin
 
 export serve
 
-export lx_lead
+export lx_lead, lx_figure
 export lx_begin, lx_end, lx_column
 
 export hfun_col
@@ -15,9 +15,7 @@ serve() = F.serve(clear=true)
 
 include("utils.jl")
 
-include("formatting.jl")
-include("envs/begin-end.jl")
-include("envs/section.jl")
-include("envs/columns.jl")
+include("coms/basic.jl")
+include("coms/begin-end.jl")
 
 end # module

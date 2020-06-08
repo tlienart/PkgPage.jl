@@ -1,4 +1,4 @@
-
+@def reeval = true
 <!-- =============================
      ABOUT
      NOTE: title is what appears at the top of the section, the name is
@@ -24,12 +24,16 @@
 
 \lead{This is a short example of how you can use the amazing package}
 
+<!-- NOTE:  if you want a  code block to be executed and its output to
+    be shown, you must "name" it so  use ```julia:name rather  than just
+    ```julia see example below.
+    The name must be a unique identifier on the page -->
+
 ```julia:usage1
 using DataFrames
 df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
 first(df, 3)
 ```
-\show{usage1}
 
 More explanations here if useful.
 
