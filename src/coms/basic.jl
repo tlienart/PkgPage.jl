@@ -18,8 +18,10 @@ end
 
 function _figure(; path="", alt="", width="", style="", caption="")
     style = ifelse(isempty(style), "", "style=\"$style\"")
-    isempty(caption) ||
-        (caption = "<figcaption class=\"figure-caption\">$caption</figcaption>")
+    if !isempty(caption)
+        isempty(alt) && (alt = caption)
+        caption = "<figcaption class=\"figure-caption\">$caption</figcaption>"
+    end
     return html("""
         <figure class="figure">
           <img src="$path" alt="$alt" class="img-fluid" width="$width" $style>
