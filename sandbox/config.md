@@ -5,12 +5,11 @@ FILL THE FOLLOWING DEFINITIONS
 @def description = "Short description of your package"
 @def authors     = "Grace Hopper, Rick Sanchez"
 
+<!-- NAVBAR SPECS -->
+
 @def add_docs  = true
 @def docs_url  = "https://franklinjl.org/"
 @def docs_name = "Docs"
-
-@def add_github_button = true
-@def github_repo       = "tlienart/Franklin.jl"
 
 @def add_nav_logo   = true
 @def nav_logo_path  = "/assets/logo.svg"
@@ -19,6 +18,15 @@ FILL THE FOLLOWING DEFINITIONS
         max-height:     25px;
         padding-right:  5px;"""
 
+<!-- HEADER / JUMBOTRON SPECS -->
+
+@def add_github_button = true
+@def github_repo       = "tlienart/Franklin.jl"
+
+@def use_jumbotron   = true
+@def container_fluid = "-fluid"
+@def jumbotron_fluid = "jumbotron-fluid"
+
 <!--
 COLOR PALETTE, ADJUST AS YOU WOULD LIKE
 you can use hex, rgb or svg color names
@@ -26,6 +34,7 @@ These tools are useful:
  - color wheel: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool
  - color names: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 -->
+
     <!-- General layout -->
 @def header_col         = "#3f6388"
 @def link_col           = "#2669DD"

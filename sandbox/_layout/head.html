@@ -18,6 +18,9 @@
 </head>
 <body id="page-top">
   {{insert nav.html}}
-  {{insert header.html}}
-
+  {{if use_jumbotron}}
+    {{insert jumbotron.html}}
+  {{else}}
+    {{insert header.html}}
+  {{end}}
   <!-- Content appended here -->

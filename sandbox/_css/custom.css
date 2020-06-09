@@ -25,6 +25,8 @@ section { padding: 100px 0; }
 
 .franklin-content ul li p { margin: 0; }
 
+.katex { font-size: 1em !important;}
+
 /* CODE */
 
 pre { margin-bottom: 0.5em; }
