@@ -13,6 +13,12 @@
 * Some information [a link](https://julialang.org)
 * Minimal custom CSS blah so you are free to explore your own unique design options
 
+\figure{
+    path="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
+    width=500,
+    caption="Placeholder image"
+}
+
 \end{:section}
 
 <!-- =============================
