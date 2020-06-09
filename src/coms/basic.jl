@@ -17,9 +17,7 @@ function lx_figure(com, _)
 end
 
 function _figure(; path="", alt="", width="", style="", caption="")
-    _style = ""
-    isempty(style) || (_style *= style)
-    style = ifelse(isempty(_style), "", "style=\"$_style\"")
+    style = ifelse(isempty(style), "", "style=\"$style\"")
     isempty(caption) ||
         (caption = "<figcaption class=\"figure-caption\">$caption</figcaption>")
     return html("""

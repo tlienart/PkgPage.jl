@@ -15,7 +15,7 @@
 
 \figure{
     path="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
-    width=500,
+    width=200,
     caption="Placeholder image"
 }
 
