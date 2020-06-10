@@ -6,7 +6,7 @@
 
 \lead{PackagePage.jl is based upon [Franklin.jl](https://github.com/tlienart/Franklin.jl) and makes it easy to create a beautiful landing page for a package in a few minutes.}
 
-PackagePage uses a Bootstrap framework and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result.
+PackagePage uses [Bootstrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result.
 With it you can:
 
 * easily insert and style figures and tables,
