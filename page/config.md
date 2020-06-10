@@ -59,7 +59,7 @@ The latter allows you to plug in values that you would have defined here.
 
 @def use_hero            = false
 @def use_header_img      = true
-@def header_img_path     = "url(\"../assets/diagonal-lines.svg\")"
+@def header_img_path     = "url(\"assets/diagonal-lines.svg\")"
 @def header_img_style    = """
     background-repeat: repeat;
     """
