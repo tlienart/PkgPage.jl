@@ -26,19 +26,16 @@ jobs:
       uses: webfactory/ssh-agent@v0.2.0
       with:
         ssh-private-key: ${{ secrets.FRANKLIN_PRIV }}
-    # NOTE
-    #   Python is necessary for pre-rendering steps as well as to install
-    #   matplotlib which is necessary if you intend to use PyPlot. If you do
-    #   not, then you can remove the `run: pip install matplotlib` line.
-    - name: Install python
-      uses: actions/setup-python@v1
-      with:
-        python-version: '3.x'
-    - run: pip install matplotlib # if you use PyPlot this is needed
+    # NOTE: uncomment the following lines if you intend to use PyPlot
+    # - name: Install python
+    #   uses: actions/setup-python@v1
+    #   with:
+    #     python-version: '3.x'
+    # - run: pip install matplotlib
     - name: Install Julia
       uses: julia-actions/setup-julia@v1
       with:
-        version: 1.4.1
+        version: 1.4
     # NOTE
     #   The steps below ensure that NodeJS and Franklin are loaded then it
     #   installs highlight.js which is needed for the prerendering step.
@@ -48,11 +45,20 @@ jobs:
     #   The last line should be `optimize()` though you may want to give it
     #   specific arguments, see the documentation or ?optimize in the REPL.
     - run: julia -e '
-            using Pkg; Pkg.add(["NodeJS", "Franklin"]);
-            using NodeJS; run(`$(npm_cmd()) install highlight.js`);
+            using Pkg;
+            Pkg.add(["NodeJS", "Franklin"]);
+            using NodeJS;
+            run(`$(npm_cmd()) install highlight.js`);
+            run(`$(npm_cmd()) install purgecss`);
             using Franklin;
-            Pkg.activate("."); Pkg.instantiate();
-            optimize()'
+            Pkg.activate("."); Pkg.instantiate(); optimize(minify=false)
+            js = """
+              const { PurgeCSS } = require('purgecss')
+              const purgeCSSResult = await new PurgeCSS().purge({
+                content: ['__site/index.html'],
+                css: ['__site/css/bootstrap.min.css'],
+                
+              })"""; run(`$(npm_cmd()) -e "$js"`)'
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:

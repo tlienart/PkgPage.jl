@@ -1,4 +1,5 @@
-using PackagePage # do not remove this
+# do not remove this first line
+using PackagePage
 
 #
 # Feel free to add whatever custom hfun_* or lx_*
