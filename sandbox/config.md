@@ -10,9 +10,10 @@ The latter allows you to plug in values that you would have defined here.
 -->
 
 <!-- META DEFINITIONS -->
-@def title       = "YourPackage.jl"
-@def description = "Short description of your package"
-@def authors     = "Grace Hopper, Rick Sanchez"
+@def title        = "YourPackage.jl"
+@def description  = "Short description of your package"
+@def authors      = "Grace Hopper, Rick Sanchez"
+@def favicon_path = "/assets/favicon.ico"
 
 <!--  NAVBAR SPECS
   NOTE:
