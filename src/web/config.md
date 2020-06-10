@@ -9,10 +9,19 @@ You can add your own rules if you so desire by either:
 The latter allows you to plug in values that you would have defined here.
 -->
 
-<!-- META DEFINITIONS -->
+<!-- META DEFINITIONS
+  - prepath: this is to have proper URLs; if your site will be
+        available at username.github.io/YourPackage.jl/ then
+        the pre-path should be `YourPackage.jl`. If your
+        site is meant to be hosted on your own page, then
+        set prepath to an empty string.
+        Adjust this if you want the deployed page to be in
+        a subfolder so for instance `YourPackage.jl/web/`.
+-->
 @def title       = "YourPackage.jl"
 @def description = "Short description of your package"
 @def authors     = "Grace Hopper, Rick Sanchez"
+@def prepath     = "YourPackage.jl"
 
 <!--  NAVBAR SPECS
   NOTE:

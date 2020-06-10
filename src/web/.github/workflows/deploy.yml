@@ -37,34 +37,26 @@ jobs:
       with:
         version: 1.4
     # NOTE
-    #   The steps below ensure that NodeJS and Franklin are loaded then it
-    #   installs highlight.js which is needed for the prerendering step.
-    #   Then the environment is activated and instantiated to install all
-    #   Julia packages which may be required to successfully build your site.
+    # Adjust the `input=""` on the last line to indicate where
+    # the source of the package page is (`page/` by default).
     #
-    #   The last line should be `optimize()` though you may want to give it
-    #   specific arguments, see the documentation or ?optimize in the REPL.
+    # Adjust also `output=""` on the last line if you want
+    # the page to be deployed in a specific folder on gh-pages
+    # if you do that, make sure that you adjust the `prepath`
+    # variable in `config.md` accordingly! so for instance
+    # if you set here `folder="web"` change prepath for
+    # `@def prepath = "YourPackage.jl/web"`
     - run: julia -e '
             using Pkg;
             Pkg.add(["NodeJS", "Franklin"]);
             using NodeJS;
             run(`$(npm_cmd()) install highlight.js`);
             run(`$(npm_cmd()) install purgecss`);
-            using Franklin;
-            Pkg.activate("."); Pkg.instantiate(); optimize(minify=false)
-            js = """
-              const { PurgeCSS } = require('purgecss')
-              const purgeCSSResult = await new PurgeCSS().purge({
-                content: ['__site/index.html'],
-                css: ['__site/css/bootstrap.min.css'],
-                
-              })"""; run(`$(npm_cmd()) -e "$js"`)'
+            import PackagePage;
+            PackagePage.optimize(input="page", output="")'
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         SSH: true
-        # NOTE
-        #   Set this to `BRANCH: gh-pages` for a **project** page and  to
-        #   `BRANCH: master` for a **personal** page
         BRANCH: gh-pages
         FOLDER: __site
