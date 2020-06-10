@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Thibaut Lienart and Zlatan Vasović">
+  <title>PackagePage.jl</title>
+
+  <link rel="icon" type="image/png"  href="/PackagePage.jl/assets/favicon.ico">
+
+  <!-- CSS -->
+   <link rel="stylesheet" href="/PackagePage.jl/libs/katex/katex.min.css">
+     
+   <link rel="stylesheet" href="/PackagePage.jl/libs/highlight/styles/atom-one-dark.css">
+   
+  <link rel="stylesheet" href="/PackagePage.jl/css/bootstrap.min.css">
+  <style>.bg-primary {
+  background-color: #3f6388 !important;
+}
+
+a {
+  color: #2669DD;
+}
+
+a:hover {
+  color: teal;
+}
+
+.section-bg-color {
+  background-color: #f6f8fa;
+}
+
+footer a {
+  color: cornflowerblue;
+}
+
+header {
+  padding-top: 55px !important;
+}
+
+
+.jumbotron {
+  background-image: url("../assets/diagonal-lines.svg");
+  background-repeat: repeat;
+}
+
+
+/* CODE ADJUSTMENTS */
+
+pre code.hljs {
+  border-radius: 10px;
+}
+
+pre code.hljs.plaintext {
+  margin-left: 15px;
+}
+</style>
+  <link rel="stylesheet" href="/PackagePage.jl/css/custom.css">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <div class="container">
+    <span class="navbar-brand">
+      
+        <img src="/PackagePage.jl/assets/logo.svg" class="img-fluid" style="max-height:     25px;
+padding-right:  10px;" alt="Logo"/>
+      
+      <a href="#page-top">PackagePage.jl</a>
+      
+    </span>
+    <input type="checkbox" id="navbar-toggler-cbox" class="d-none" />
+    <label for="navbar-toggler-cbox" class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </label>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#getting_started">Getting started</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#commands">Commands</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#deployment">Deployment</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <header class="text-white text-center">
+  
+    <div class="jumbotron jumbotron-fluid container-fluid bg-primary">
+  
+    <h1>PackagePage.jl</h1>
+    <div class="lead">Create a beautiful landing page for your package in minutes.</div>
+    
+      <a class="github-button" href="https://github.com/tlienart/PackagePage.jl" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star PackagePage.jl on GitHub">Star</a>
+    
+  </div>
+</header>
+
+  <!-- Content appended here -->
+<div class="franklin-content"><section id="about" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>
+          About this Package
+        </h2>
+
+<div class="lead">PackagePage.jl is based upon Franklin and makes it easy to create a beautiful landing page for a package in a few minutes.</div>
+<p>PackagePage uses a Bootstrap framework and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result. With it you can:</p>
+<ul>
+<li><p>easily insert and style figures and tables,</p>
+</li>
+<li><p>easily initiate a multi-columns environment,</p>
+</li>
+<li><p>easily control the layout, colors, code theme etc from the config file,</p>
+</li>
+<li><p>automatic insertion of new sections into the navbar,</p>
+</li>
+<li><p>automatic purging of bootstrap css to remove unused rules,</p>
+</li>
+<li><p>all the goodies from <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>:</p>
+<ul>
+<li><p>live-rendering,</p>
+</li>
+<li><p>support for <a href="https://github.com/KaTeX/KaTeX">KaTeX</a> and <a href="https://highlightjs.org/">highlight.js</a> and automatic pre-rendering,</p>
+</li>
+<li><p>and <a href="https://franklinjl.org/">much more</a>.</p>
+</li>
+</ul>
+</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="getting_started" class="section-bg-color">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>
+          Getting started
+        </h2>
+
+<p>In order to get started, just add the package and</p>
+<pre><code class="julia-repl hljs"><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> PackagePage
+</span><span class="hljs-meta">julia&gt;</span><span class="julia"> newpage()
+</span><span class="hljs-meta">julia&gt;</span><span class="julia"> serve()</span></code></pre>
+<br/>
+<p>The <code>newpage</code> call will</p>
+<ul>
+<li><p>generate a <code>page/</code> folder in your current directory which contains all the material to generate your site,</p>
+</li>
+<li><p>place a <code>.github/workflows/DeployPage.yml</code> to enable the github action that will help deploy your page.</p>
+</li>
+</ul>
+<p>The <code>serve</code> call will render your page and make it available for live-preview in your browser.</p>
+<div class="alert alert-info" role="alert">
+ You can specify another folder name via <code>newpage&#40;path&#61;&quot;page2&quot;&#41;</code> but don&#39;t forget to modify this in the <code>DeployPage.yml</code> as well &#40;in 2 spots&#41;. </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="commands" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>
+          Commands
+        </h2>
+
+<div class="lead">PackagePage makes a few commands available to you to simplify the insertion of common useful environments.</div>
+<p><strong>Sections</strong>: you can indicate a section as follows:</p>
+<pre><code class="plaintext hljs">\begin{:section, opts...}
+text
+\end{:section}</code></pre>
+<p>where the available options are:</p>
+<ul>
+<li><p><code>title&#61;&quot;...&quot;</code> to add a heading to the section, this should be provided,</p>
+</li>
+<li><p><code>name&#61;&quot;...&quot;</code> to add a specific name that will appear in the navbar &#40;if not given, it will use the given title&#41;.</p>
+</li>
+</ul>
+<p><strong>Figures</strong>: you can indicate a figure as follows:</p>
+<pre><code class="plaintext hljs">\figure{path="...", opts...}</code></pre>
+<p>where <code>path</code> is a valid path to the image &#40;e.g. <code>/assets/image.png</code>&#41; and the other available options are:</p>
+<ul>
+<li><p><code>width&#61;&quot;...&quot;</code> to specify the width of the image &#40;e.g. <code>100&#37;</code>&#41;,</p>
+</li>
+<li><p><code>alt&#61;&quot;...&quot;</code> to specify the image <code>alt</code>,</p>
+</li>
+<li><p><code>caption&#61;&quot;...&quot;</code> to specify the figure caption if any,</p>
+</li>
+<li><p><code>style&#61;&quot;...&quot;</code> to add any specific CSS styling to the image &#40;e.g. <code>border-radius:5px</code>&#41;.</p>
+</li>
+</ul>
+<div style="text-align:center;"> <figure class="figure">
+  <img src="/PackagePage.jl/assets/nice_image.jpg" alt="Panoramic view of the Tara Cathedrals (taken from Wikimedia)." class="figure-img img-fluid " width="100%" style="border-radius:5px;">
+  <figcaption class="figure-caption ">
+Panoramic view of the Tara Cathedrals (taken from Wikimedia).
+</figcaption>
+
+</figure>
+</div>
+<p><strong>Tables</strong>: you can insert a table as follows:</p>
+<pre><code class="plaintext hljs">\table{"""
+| Column One | Column Two | Column Three |
+|:---------- | ---------- |:------------:|
+| Row `1`    | Column `2` |              |
+| *Row* 2    | **Row** 2  | Column ``3`` |
+""", opts...}</code></pre>
+<p>where the available options are:</p>
+<ul>
+<li><p><code>caption&#61;&quot;...&quot;</code>: to add a caption to the table,</p>
+</li>
+<li><p><code>class&#61;&quot;...&quot;</code>: to add specific bootstrap classes to the table &#40;e.g. <code>table-striped</code>&#41;,</p>
+</li>
+<li><p><code>style&#61;&quot;...&quot;</code>: for any further styling.</p>
+</li>
+</ul>
+<div style="text-align:center;"> <table class="table table-striped"><caption>A simple table</caption> <thead><tr><th align="left">Column One</th><th align="left">Column Two</th><th align="center">Column Three</th></tr></thead><tbody><tr><td align="left">Row <code>1</code></td><td align="left">Column <code>2</code></td><td align="center"></td></tr><tr><td align="left"><em>Row</em> 2</td><td align="left"><strong>Row</strong> 2</td><td align="center">Column <code>3</code></td></tr></tbody></table></div>
+<p><strong>Columns</strong>: you can declare an environment with columns with:</p>
+<pre><code class="plaintext hljs">\begin{:columns}
+\column{
+Content of a first column  here
+}
+\column{
+Content of a second column here
+}
+\end{:columns}</code></pre>
+<p>which will look like:</p>
+<div class="container">
+  <div class="row">
+ <div class="col"><em>Content of a first column here</em></div> <div class="col"><em>Content of a second column here</em></div>   </div>
+</div>
+
+<br/>
+<p><strong>Maths</strong></p>
+<p>Just use <code>&#36;&#36; ... &#36;&#36;</code> for display math and  <code>&#36; ... &#36;</code> for inline maths:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup><mo stretchy="false">)</mo><mo stretchy="false">[</mo><msubsup><mi>P</mi><mi>n</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msubsup><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo><msup><mo stretchy="false">]</mo><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex"> w_i = {2 \over (1-x_i^2)[P&#x27;_n(x_i)]^2} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.2843039999999997em;vertical-align:-0.9628639999999999em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7959080000000001em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.0448000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.677892em;"><span style="top:-2.4530000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9628639999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span> </p>
+<p>where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">P_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>-th <a href="https://en.wikipedia.org/wiki/Legendre_polynomials">Legendre polynomial</a> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is it&#39;s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>-th root.</p>
+<p><strong>Misc</strong></p>
+<ul>
+<li><p>you can use <code>\\</code> to add some vertical space &#40;skip a line&#41;</p>
+</li>
+<li><p>you can use <code>\center&#123;...&#125;</code> to center some content</p>
+</li>
+<li><p>you can use <code>\style&#123;color:red;text-transform:capitalize;&#125;&#123;hello&#125;</code> to get something like <span style="color:red;text-transform:uppercase;">hello</span>,</p>
+</li>
+<li><p>you can use <code>\alert&#123;...&#125;</code> to draw attention to some text via a coloured box.</p>
+</li>
+</ul>
+<p>You can also define your own commands which can be as complex as you might want, see the <a href="https://franklinjl.org">Franklin docs</a> for more information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="deployment" class="section-bg-color">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>
+          Deployment
+        </h2>
+
+<div class="lead">Make your page available online easily by leveraging github actions and GitHub pages.</div>
+<p>By following these instructions, the content of the rendered website will be copied to a <code>gh-pages</code> branch where it will be deployed by GitHub. If you would like to deploy the page with your own URL or using something else than GitHub, have a  look at the specific instructions further on.</p>
+<p><strong>Keys</strong>: in order to have your page be built and deployed on GitHub, you will need to generate a keypair and add it to the GitHub repo. To do so:</p>
+<ol>
+<li><p>run in your terminal  <code>ssh-keygen -N &quot;&quot; -f franklin</code>,</p>
+</li>
+<li><p>copy the entire content of  the <code>franklin</code> file and put it as a new secret named <code>FRANKLIN_PRIV</code> on <a href="https://github.com/USERNAME/PACKAGE.jl/settings/secrets/new">https://github.com/USERNAME/PACKAGE.jl/settings/secrets/new</a>,</p>
+</li>
+<li><p>copy the entire content of the  <code>franklin.pub</code> file and put it as a new deploy key named <code>FRANKLIN_PUB</code> on <a href="https://github.com/USERNAME/PACKAGE.jl/settings/keys">https://github.com/USERNAME/PACKAGE.jl/settings/keys</a> with <code>read/write</code> access.</p>
+</li>
+</ol>
+<p>Whenever the <code>master</code> branch of your package gets updated, the  build process will be triggered and your page updated. That&#39;s it.</p>
+<p><strong>Avoiding clashes with Documenter.jl</strong>: if you already use <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> you might want your page to be deployed in a specific folder of <code>gh-pages</code>, you can do so in two steps:</p>
+<ol>
+<li><p>change the <code>run</code> part of <code>DeployPage.yml</code> by specifying the <code>output</code> keyword argument  in <code>PackagePage.optimize</code> for instance: <code>PackagePage.optimize&#40;input&#61;&quot;page&quot;, output&#61;&quot;page&quot;&#41;</code>,</p>
+</li>
+<li><p>change the <code>prepath</code> in <code>config.md</code> to reflect that the base URL will contain that additional folder, for instance <code>@def prepath &#61; &quot;YourPackage.jl/page&quot;</code>.</p>
+</li>
+</ol>
+<p><strong>Use your own URL</strong>: you can usually get your host service like netlify to deploy a specific branch, do make sure to set <code>@def prepath &#61; &quot;&quot;</code> in your <code>config.md</code> though.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">&copy; Thibaut Lienart and Zlatan Vasović. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.</p>
+  </div>
+</footer>
+</div><!-- CONTENT ENDS HERE -->
+  
+      
+
+
+
+  
+  
+      
+
+
+  
+  </body>
+</html>
