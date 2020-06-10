@@ -83,11 +83,11 @@ Variables:
 -->
 
     <!-- General layout -->
-@def header_col         = "#3f6388"
-@def link_col           = "#2669DD"
-@def link_hover_col     = "teal"
-@def section_bg_col_2   = "#f6f8fa"
-@def footer_link_col    = "cornflowerblue"
+@def header_color       = "#3f6388"
+@def link_color         = "#2669DD"
+@def link_hover_color   = "teal"
+@def section_bg_color   = "#f6f8fa"
+@def footer_link_color  = "cornflowerblue"
 
     <!-- Code theme, pick from https://highlightjs.org/static/demo/
          examples (use lowercase and separate with `-`)

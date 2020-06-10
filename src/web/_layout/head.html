@@ -8,13 +8,16 @@
   <title>{{title}}</title>
 
   <!-- CSS -->
-  {{if hasmath}} {{insert head_katex.html }}     {{end}}
-  {{if hascode}} {{insert head_highlight.html }}   {{end}}
+  {{if hasmath}} {{insert head_katex.html }} {{end}}
+  {{if hascode}} {{insert head_highlight.html }} {{end}}
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <style>{{insert style_tuning.fcss}}</style>
   <link rel="stylesheet" href="/css/custom.css">
+  <link rel="icon" href="{{favicon_path}}">
 
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  {{if add_github_button}}
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  {{end}}
 </head>
 <body id="page-top">
   {{insert nav.html}}

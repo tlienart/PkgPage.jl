@@ -9,19 +9,12 @@ You can add your own rules if you so desire by either:
 The latter allows you to plug in values that you would have defined here.
 -->
 
-<!-- META DEFINITIONS
-  - prepath: this is to have proper URLs; if your site will be
-        available at username.github.io/YourPackage.jl/ then
-        the pre-path should be `YourPackage.jl`. If your
-        site is meant to be hosted on your own page, then
-        set prepath to an empty string.
-        Adjust this if you want the deployed page to be in
-        a subfolder so for instance `YourPackage.jl/web/`.
--->
-@def title       = "YourPackage.jl"
-@def description = "Short description of your package"
-@def authors     = "Grace Hopper, Rick Sanchez"
-@def prepath     = "YourPackage.jl"
+<!-- META DEFINITIONS -->
+@def title        = "YourPackage.jl"
+@def description  = "Short description of your package"
+@def authors      = "Grace Hopper, Rick Sanchez"
+@def prepath      = "YourPackage.jl"
+@def favicon_path = "/assets/favicon.ico"
 
 <!--  NAVBAR SPECS
   NOTE:
@@ -68,26 +61,26 @@ The latter allows you to plug in values that you would have defined here.
 @def github_repo         = "tlienart/Franklin.jl"
 
 <!-- COLOR PALETTE
-you can use hex, rgb or svg color names
+you can use Hex, RGB or SVG color names
 These tools are useful:
   - color wheel: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool
   - color names: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 
 Variables:
-  - header_col: background color of the header
-  - link_col: color of links
-  - link_hover_col: color of links when hovered
-  - section_bg_col_2: background color of "secondary" sections to help visually
+  - header_color: background color of the header
+  - link_color: color of links
+  - link_hover_color: color of links when hovered
+  - section_bg_color: background color of "secondary" sections to help visually
         separate between sections.
-  - footer_link_col: color of links in the footer
+  - footer_link_color: color of links in the footer
 -->
 
     <!-- General layout -->
-@def header_col         = "#3f6388"
-@def link_col           = "#2669DD"
-@def link_hover_col     = "teal"
-@def section_bg_col_2   = "#f6f8fa"
-@def footer_link_col    = "cornflowerblue"
+@def header_color       = "#3f6388"
+@def link_color         = "#2669DD"
+@def link_hover_color   = "teal"
+@def section_bg_color   = "#f6f8fa"
+@def footer_link_color  = "cornflowerblue"
 
     <!-- Code theme, pick from https://highlightjs.org/static/demo/
          examples (use lowercase and separate with `-`)
@@ -104,10 +97,10 @@ Variables:
 @def code_output_indent = "15px"
 
 
-<!-- ==========================================================================
-===============================================================================
-DO NOT CHANGE THE FOLLOWING DEFINITIONS UNLESS YOU'RE SURE OF WHAT YOU'RE DOING
-===============================================================================
+<!-- =======================================================================
+============================================================================
+DO NOT CHANGE THE FOLLOWING DEFINITIONS UNLESS YOU'RE SURE WHAT YOU'RE DOING
+============================================================================
 These definitions are important for the good functioning of some of the
 commands that are defined and used in PackagePage.
 -->
