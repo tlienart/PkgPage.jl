@@ -1,4 +1,3 @@
-@def reeval = true
 <!-- =============================
      ABOUT
      NOTE: title is what appears at the top of the section, the name is

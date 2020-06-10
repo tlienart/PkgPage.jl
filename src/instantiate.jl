@@ -4,8 +4,13 @@ function serve(path="page")
     isdir(path) || error("Couldn't find path '$path'.")
     bk = pwd()
     cd(path)
-    F.serve(clear=true)
-    cd(bk)
+    try
+        F.serve(clear=true)
+    catch e
+        @show e
+    finally
+        cd(bk)
+    end
     return nothing
 end
 
@@ -53,6 +58,7 @@ function newpage(; path="page", overwrite=false)
     mkdir(path)
     store = joinpath(dirname(pathof(PackagePage)), "web")
     for obj in readdir(store)
+        obj == "DeployPage.yml" && continue
         src = joinpath(store, obj)
         dst = joinpath(path, obj)
         cp(src, dst)
@@ -63,5 +69,12 @@ function newpage(; path="page", overwrite=false)
             chmod(joinpath(root, file), 0o644)
         end
     end
+    # Try placing the `DeployPage.yml`
+    name = "DeployPage.yml"
+    gapath = mkpath(joinpath(".github", "workflows"))
+    src = joinpath(store, name)
+    dst = joinpath(gapath, name)
+    cp(src, dst, force=false)
+    chmod(dst, 0o644)
     return nothing
 end
