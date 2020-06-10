@@ -15,7 +15,7 @@ function serve(path="page")
 end
 
 # Should only be called in the deploy (on github-action)
-function optimize(input="page", output="")
+function optimize(; input="page", output="")
     isdir(input) || error("Couldn't find the folder '$input'.")
     occursin("/", output) && error("No depth allowed in output.")
     bk = pwd()
