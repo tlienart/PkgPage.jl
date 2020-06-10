@@ -90,6 +90,15 @@ Here are not one but **two** columns!
 
 \end{:columns}
 
+You can also have tables:
+
+\table{"""
+| Column One | Column Two | Column Three |
+|:---------- | ---------- |:------------:|
+| Row `1`    | Column `2` |              |
+| *Row* 2    | **Row** 2  | Column ``3`` |
+""", class="table-striped", caption="a table"}
+
 \end{:section}
 
 <!-- =============================
