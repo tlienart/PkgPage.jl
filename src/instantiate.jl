@@ -20,7 +20,7 @@ function optimize(input="page", output="")
     io = IOBuffer()
     run(pipeline(`$(NodeJS.npm_cmd()) root`, stdout=io))
     nodepath = String(take!(io))
-    run(`$nodepath/purgecss/bin/purgecss --css __site/css/bootstrap.min.css --content __site/index.html --output __css/css/bootstrap.min.css`)
+    run(`$(strip(nodepath))/purgecss/bin/purgecss --css __site/css/bootstrap.min.css --content __site/index.html --output __site/css/bootstrap.min.css`)
 
     isempty(output) && (cd(bk); return nothing)
 
@@ -41,7 +41,7 @@ end
 """
     newpage()
 """
-function newpage(path="page", overwrite=false)
+function newpage(; path="page", overwrite=false)
     if isdir(path)
         if !overwrite
             error("Path '$path' already exists, use `overwrite=true` " *
@@ -57,4 +57,11 @@ function newpage(path="page", overwrite=false)
         dst = joinpath(path, obj)
         cp(src, dst)
     end
+    # Pkg makes files read-only but we don't want that
+    for (root, _, files) ∈ walkdir(path)
+        for file in files
+            chmod(joinpath(root, file), 0o644)
+        end
+    end
+    return nothing
 end
