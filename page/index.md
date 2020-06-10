@@ -26,7 +26,7 @@ With it you can:
      ============================== -->
 \begin{:section, title="Getting started"}
 
-In order to get started, just add the package and
+In order to get started, just add the package (with **Julia ≥ 1.3**) and
 
 ```julia-repl
 julia> using PackagePage
