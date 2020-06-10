@@ -22,12 +22,12 @@ header {
   padding-top: {{header_padding_top}} !important;
 }
 
+{{if use_header_img}}
 .jumbotron {
-  {{if use_header_img}}
   background-image: {{header_img_path}};
   background-repeat: repeat;
-  {{end}}
 }
+{{end}}
 
 /* CODE ADJUSTMENTS */
 
