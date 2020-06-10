@@ -10,10 +10,31 @@ a:hover {
   color: {{link_hover_col}};
 }
 
-section.bg-col-2 { background-color: {{section_bg_col_2}}; }
+section.bg-col-2 {
+  background-color: {{section_bg_col_2}};
+}
 
-footer a {color: {{footer_link_col}}; }
+footer a {
+  color: {{footer_link_col}};
+}
+
+header {
+  padding-top: {{header_padding_top}} !important;
+}
+
+.jumbotron {
+  {{if use_header_img}}
+  background-image: {{header_img_path}};
+  background-repeat: repeat;
+  {{end}}
+}
 
 /* CODE ADJUSTMENTS */
-pre code.hljs { border-radius: {{code_border_radius}}; }
-pre code.hljs.plaintext { margin-left: {{code_output_indent}}; }
+
+pre code.hljs {
+  border-radius: {{code_border_radius}};
+}
+
+pre code.hljs.plaintext {
+  margin-left: {{code_output_indent}};
+}
