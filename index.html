@@ -94,6 +94,10 @@ padding-right:  10px;" alt="Logo"/>
           <a class="nav-link js-scroll-trigger" href="#deployment">Deployment</a>
         </li>
         
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#showing_code">Showing Code</a>
+        </li>
+        
       </ul>
     </div>
   </div>
@@ -304,9 +308,40 @@ Content of a second column here
     </div>
   </div>
 </section>
+
+<section id="showing_code" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>
+          Showing Code
+        </h2>
+
+<div class="lead">Franklin can run your Julia code on the fly and show the output.</div>
+<p><strong>Setting up the environment</strong>: the first step is to ensure that the folder with your source has the proper environment including your package. To do so, in the Julia REPL, navigate to the source &#40;e.g. <code>cd&#40;&quot;page/&quot;&#41;</code>&#41;, activate the environment &#40;e.g. <code>using Pkg; Pkg.activate&#40;&#41;</code>&#41; and add the package&#40;s&#41; that you need &#40;e.g. <code>Pkg.add&#40;&quot;DataFrames&quot;&#41;</code>&#41;. If you check the status or the Project.toml, you will see that <code>Franklin</code> is already in there on top of whatever packages you might have chosen to add. In ou current case:</p>
+<pre><code class="julia hljs">Status <span class="hljs-string">`~/.julia/dev/PackagePage/page/Project.toml`</span>
+  [a93c6f00] DataFrames v0<span class="hljs-number">.21</span><span class="hljs-number">.2</span>
+  [<span class="hljs-number">713</span>c75ef] Franklin v0<span class="hljs-number">.8</span><span class="hljs-number">.2</span></code></pre>
+<p>Once that&#39;s set up, you can use &quot;named&quot; code blocks i.e. code blocks that look like</p>
+<pre><code class="julia hljs"><span class="hljs-string">``</span><span class="hljs-string">`julia:ex
+using DataFrames
+df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
+first(df, 3)
+`</span><span class="hljs-string">``</span></code></pre>
+<p>where <code>:ex</code> is the &quot;named part&quot; &#40;<code>ex</code> being the name, which should be unique on the page&#41;.</p>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> DataFrames
+df = DataFrame(A = <span class="hljs-number">1</span>:<span class="hljs-number">4</span>, B = [<span class="hljs-string">"M"</span>, <span class="hljs-string">"F"</span>, <span class="hljs-string">"F"</span>, <span class="hljs-string">"M"</span>])
+first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plaintext hljs">ArgumentError: Package DataFrames [a93c6f00-e57d-5684-b7b6-d8193f3e46c0] is required but does not seem to be installed:
+ - Run `Pkg.instantiate()` to install all recorded dependencies.
+
+</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="py-5 bg-dark">
   <div class="container">
-    <p class="m-0 text-center text-white">&copy; Thibaut Lienart and Zlatan Vasović. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.</p>
+    <p class="m-0 text-center text-white">&copy; Thibaut Lienart and Zlatan Vasović. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and <a href="https://github.com/tlienart/PackagePage.jl">PackagePage.jl</a>.</p>
   </div>
 </footer>
 </div><!-- CONTENT ENDS HERE -->
