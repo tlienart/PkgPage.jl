@@ -38,7 +38,7 @@ jobs:
     # `@def prepath = "YourPackage.jl/web"`
     - run: julia -e '
             using Pkg;
-            Pkg.add(["NodeJS"]);
+            Pkg.add(["NodeJS", "DataFrames"]);
             Pkg.add(PackageSpec(url="https://github.com/tlienart/PackagePage.jl"));
             using NodeJS;
             run(`$(npm_cmd()) install highlight.js`);
