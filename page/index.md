@@ -175,7 +175,11 @@ If you would like to deploy the page with your own URL or using something else t
 Whenever the `master` branch of your package gets updated, the  build process will be triggered and your page updated.
 That's it.
 
-**Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages`, you can do so in two steps:
+**Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages`.
+
+\alert{Note that this is typically not necessary as the names created by PackagePage and by Documenter don't clash, but you might still prefer to not mix the two (in which case, read on).}
+
+ you can do so in two steps:
 
 1. change the `run` part of `DeployPage.yml` by specifying the `output` keyword argument  in `PackagePage.optimize` for instance: `PackagePage.optimize(input="page", output="page")`,
 1. change the `prepath` in `config.md` to reflect that the base URL will contain that additional folder, for instance `@def prepath = "YourPackage.jl/page"`.
