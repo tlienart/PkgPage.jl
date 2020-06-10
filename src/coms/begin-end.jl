@@ -55,7 +55,7 @@ function _begin_section(; title="", name=title)
     F.set_var!(F.GLOBAL_VARS, "section_counter", counter+1)
     class = ""
     if iseven(counter)
-        class = "class=\"bg-col-2\""
+        class = "class=\"section-bg-color\""
     end
     return html(
         """

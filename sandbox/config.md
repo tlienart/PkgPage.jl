@@ -60,26 +60,26 @@ The latter allows you to plug in values that you would have defined here.
 @def github_repo         = "tlienart/Franklin.jl"
 
 <!-- COLOR PALETTE
-you can use hex, rgb or svg color names
+you can use Hex, RGB or SVG color names
 These tools are useful:
   - color wheel: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool
   - color names: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 
 Variables:
-  - header_col: background color of the header
-  - link_col: color of links
-  - link_hover_col: color of links when hovered
-  - section_bg_col_2: background color of "secondary" sections to help visually
+  - header_color: background color of the header
+  - link_color: color of links
+  - link_hover_color: color of links when hovered
+  - section_bg_color: background color of "secondary" sections to help visually
         separate between sections.
-  - footer_link_col: color of links in the footer
+  - footer_link_color: color of links in the footer
 -->
 
     <!-- General layout -->
-@def header_col         = "#3f6388"
-@def link_col           = "#2669DD"
-@def link_hover_col     = "teal"
-@def section_bg_col_2   = "#f6f8fa"
-@def footer_link_col    = "cornflowerblue"
+@def header_color       = "#3f6388"
+@def link_color         = "#2669DD"
+@def link_hover_color   = "teal"
+@def section_bg_color   = "#f6f8fa"
+@def footer_link_color  = "cornflowerblue"
 
     <!-- Code theme, pick from https://highlightjs.org/static/demo/
          examples (use lowercase and separate with `-`)
@@ -96,10 +96,10 @@ Variables:
 @def code_output_indent = "15px"
 
 
-<!-- ==========================================================================
-===============================================================================
-DO NOT CHANGE THE FOLLOWING DEFINITIONS UNLESS YOU'RE SURE OF WHAT YOU'RE DOING
-===============================================================================
+<!-- =======================================================================
+============================================================================
+DO NOT CHANGE THE FOLLOWING DEFINITIONS UNLESS YOU'RE SURE WHAT YOU'RE DOING
+============================================================================
 These definitions are important for the good functioning of some of the
 commands that are defined and used in PackagePage.
 -->
