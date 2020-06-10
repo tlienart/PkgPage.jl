@@ -33,8 +33,12 @@ section h2 { margin-bottom: 1em;}
 /* CODE */
 
 pre { margin-bottom: 0.5em; }
-pre code.hljs.plaintext {
+pre code.hljs {
 	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+pre code.hljs.plaintext {
 	margin-bottom: 1em;
 }
 
