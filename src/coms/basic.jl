@@ -16,8 +16,7 @@ function lx_figure(com, _)
     return _figure(; kwargs...)
 end
 
-function _figure(; path="", alt="", width="", style="", caption="",
-                   imgclass="", captionclass="")
+function _figure(; path="", alt="", width="", style="", caption="", imgclass="", captionclass="")
     style = ifelse(isempty(style), "", "style=\"$style\"")
     if !isempty(caption)
         isempty(alt) && (alt = caption)
@@ -55,4 +54,11 @@ function _table(md; style="", caption="", class="")
     h = CommonMark.html(parser(md))
     h = replace(h, "<table>"=>"")
     return html("""<table class="table $class">$caption $h""")
+end
+
+function lx_alert(com, _)
+    content = strip(proc(com))
+    return html("""
+        <div class="alert alert-info" role="alert">
+        """) * content * html("</div>")
 end

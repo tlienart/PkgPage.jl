@@ -4,30 +4,17 @@ Create a webpage for your package in < 10 minutes.
 
 **Authors**: Thibaut Lienart, Zlatan Vasović
 
-## DEV
+## Todo
 
-* Go to `/sandbox/` and start Franklin
-* When we're happy  with  that, we'll re-structure where the different things are so that the `newpage` function puts files in the right place etc.
-
-**Todo**
-* [ ] think about standard use cases and add short example
-  - inclusion of small, medium, large image
-  - small grid of people
-* [ ] make sure the instructions are dead simple
-* [ ] add github workflow stuff with project by default
-* [ ] fix prepath (project by default)
-* [ ] indicate that this is expected to be hosted by github page
-  - if not (self-hosted) need to do (a,b,c)
-
-
-### Examples to draw from
-
-* junolab.org/
-* binarybuilder.org
+* [ ] complete readme ("docs") --> make it into a page itself...
+* [ ] rearrange files
+* [ ] adjust and complete tests
+* [ ] add CI and coverage
+* [ ] add purgecss 
 
 ## Steps
 
-Placeholder instructions, basically something like
+TODO //  Placeholder instructions, basically something like
 
 ```julia-repl
 julia> using Pkg; Pkg.add(["Franklin", "PackagePage"])
@@ -36,3 +23,9 @@ julia> newpage("PackageNamePage")
 ```
 
 config, serve etc
+
+## Putting your page online
+
+### Possible clashes with Documenter
+
+## Special Commands
