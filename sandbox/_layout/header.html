@@ -1,5 +1,9 @@
-<header class="bg-primary text-white">
-  <div class="container text-center">
+<header class="text-white text-center">
+  {{if use_hero}}
+    <div class="jumbotron container bg-primary">
+  {{else}}
+    <div class="jumbotron jumbotron-fluid container-fluid bg-primary">
+  {{end}}
     <h1>{{title}}</h1>
     <div class="lead">{{description}}</div>
     {{if add_github_button}}

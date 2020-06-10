@@ -1,6 +1,7 @@
 html { scroll-behavior: smooth; }
-header { padding: 156px 0 100px; }
-section { padding: 100px 0; }
+header { margin: 0; padding: 0;}
+section { padding: 75px 0; }
+.jumbotron { margin-bottom: 0;}
 
 /* NAVBAR */
 
@@ -15,11 +16,13 @@ section { padding: 100px 0; }
 
 /* FORMATTING */
 
+section h2 { margin-bottom: 1em;}
+
 .lead {
   font-size: 20px;
   font-weight: 300;
   line-height: 30px;
-  margin-bottom: 16px;
+  margin-bottom: 1em;
   margin-top: 0;
 }
 
