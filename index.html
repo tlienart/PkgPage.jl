@@ -296,7 +296,10 @@ Content of a second column here
 </li>
 </ol>
 <p>Whenever the <code>master</code> branch of your package gets updated, the  build process will be triggered and your page updated. That&#39;s it.</p>
-<p><strong>Avoiding clashes with Documenter.jl</strong>: if you already use <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> you might want your page to be deployed in a specific folder of <code>gh-pages</code>, you can do so in two steps:</p>
+<p><strong>Avoiding clashes with Documenter.jl</strong>: if you already use <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> you might want your page to be deployed in a specific folder of <code>gh-pages</code>.</p>
+<div class="alert alert-info" role="alert">
+ Note that this is typically not necessary as the names created by PackagePage and by Documenter don&#39;t clash, but you might still prefer to not mix the two &#40;in which case, read on&#41;. </div>
+<p>you can do so in two steps:</p>
 <ol>
 <li><p>change the <code>run</code> part of <code>DeployPage.yml</code> by specifying the <code>output</code> keyword argument  in <code>PackagePage.optimize</code> for instance: <code>PackagePage.optimize&#40;input&#61;&quot;page&quot;, output&#61;&quot;page&quot;&#41;</code>,</p>
 </li>
