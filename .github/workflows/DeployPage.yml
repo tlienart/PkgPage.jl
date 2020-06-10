@@ -38,7 +38,8 @@ jobs:
     # `@def prepath = "YourPackage.jl/web"`
     - run: julia -e '
             using Pkg;
-            Pkg.add(["NodeJS", "https://github.com/tlienart/PackagePage.jl"]);
+            Pkg.add(["NodeJS"]);
+            Pkg.add(PackageSpec(url="https://github.com/tlienart/PackagePage.jl"));
             using NodeJS;
             run(`$(npm_cmd()) install highlight.js`);
             run(`$(npm_cmd()) install purgecss`);
