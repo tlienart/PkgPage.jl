@@ -4,7 +4,7 @@
 
 \begin{:section, title="About this Package", name="About"}
 
-\lead{PackagePage.jl is based upon Franklin and makes it easy to create a beautiful landing page for a package in a few minutes.}
+\lead{PackagePage.jl is based upon [Franklin.jl](https://github.com/tlienart/Franklin.jl) and makes it easy to create a beautiful landing page for a package in a few minutes.}
 
 PackagePage uses a Bootstrap framework and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result.
 With it you can:
