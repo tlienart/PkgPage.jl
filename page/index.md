@@ -4,7 +4,7 @@
 
 \begin{:section, title="About this Package", name="About"}
 
-\lead{PkgPage.jl is based upon [Franklin.jl](https://github.com/tlienart/Franklin.jl) and makes it easy to create a beautiful landing page for a package in a few minutes.}
+\lead{PkgPage.jl is based upon [Franklin.jl](https://github.com/tlienart/Franklin.jl) and makes it easy to create a beautiful landing page for a package in less than 10 minutes.}
 
 PkgPage uses [Bootstrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result.
 With it you can:
