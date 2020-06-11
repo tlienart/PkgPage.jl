@@ -18,10 +18,10 @@ The latter allows you to plug in values that you would have defined here.
         Adjust this if you want the deployed page to be in
         a subfolder so for instance `YourPackage.jl/web/`.
 -->
-@def title       = "PackagePage.jl"
+@def title       = "PkgPage.jl"
 @def description = "Create a beautiful landing page for your package in minutes."
 @def authors     = "Thibaut Lienart and Zlatan Vasović"
-@def prepath     = "PackagePage.jl"
+@def prepath     = "PkgPage.jl"
 
 <!--  NAVBAR SPECS
   NOTE:
@@ -65,7 +65,7 @@ The latter allows you to plug in values that you would have defined here.
     """
 @def header_padding_top  = "55px" <!-- 55 = touching nav bar -->
 @def add_github_button   = true
-@def github_repo         = "tlienart/PackagePage.jl"
+@def github_repo         = "tlienart/PkgPage.jl"
 
 <!-- COLOR PALETTE
 you can use hex, rgb or svg color names
@@ -109,7 +109,7 @@ Variables:
 DO NOT CHANGE THE FOLLOWING DEFINITIONS UNLESS YOU'RE SURE OF WHAT YOU'RE DOING
 ===============================================================================
 These definitions are important for the good functioning of some of the
-commands that are defined and used in PackagePage.
+commands that are defined and used in PkgPage.
 -->
 @def sections = Pair{String,String}[]
 @def section_counter = 1

@@ -4,9 +4,9 @@
 
 \begin{:section, title="About this Package", name="About"}
 
-\lead{PackagePage.jl is based upon [Franklin.jl](https://github.com/tlienart/Franklin.jl) and makes it easy to create a beautiful landing page for a package in a few minutes.}
+\lead{PkgPage.jl is based upon [Franklin.jl](https://github.com/tlienart/Franklin.jl) and makes it easy to create a beautiful landing page for a package in a few minutes.}
 
-PackagePage uses [Bootstrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result.
+PkgPage uses [Bootstrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result.
 With it you can:
 
 * easily insert and style figures and tables,
@@ -29,7 +29,7 @@ With it you can:
 In order to get started, just add the package (with **Julia ≥ 1.3**) and
 
 ```julia-repl
-julia> using PackagePage
+julia> using PkgPage
 julia> newpage()
 julia> serve()
 ```
@@ -51,7 +51,7 @@ The `serve` call will render your page and make it available for live-preview in
      ============================== -->
 \begin{:section, title="Commands"}
 
-\lead{PackagePage makes a few commands available to you to simplify the insertion of common useful environments.
+\lead{PkgPage makes a few commands available to you to simplify the insertion of common useful environments.
 }
 
 **Sections**: you can indicate a section as follows:
@@ -177,11 +177,11 @@ That's it.
 
 **Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages`.
 
-\alert{Note that this is typically not necessary as the names created by PackagePage and by Documenter don't clash, but you might still prefer to not mix the two (in which case, read on).}
+\alert{Note that this is typically not necessary as the names created by PkgPage and by Documenter don't clash, but you might still prefer to not mix the two (in which case, read on).}
 
  you can do so in two steps:
 
-1. change the `run` part of `DeployPage.yml` by specifying the `output` keyword argument  in `PackagePage.optimize` for instance: `PackagePage.optimize(input="page", output="page")`,
+1. change the `run` part of `DeployPage.yml` by specifying the `output` keyword argument  in `PkgPage.optimize` for instance: `PkgPage.optimize(input="page", output="page")`,
 1. change the `prepath` in `config.md` to reflect that the base URL will contain that additional folder, for instance `@def prepath = "YourPackage.jl/page"`.
 
 **Use your own URL**: you can usually get your host service like netlify to deploy a specific branch, do make sure to set `@def prepath = ""` in your `config.md` though.
@@ -204,7 +204,7 @@ If you check the status or the Project.toml, you will see that `Franklin` is alr
 In our current case:
 
 ```
-Status `~/.julia/dev/PackagePage/page/Project.toml`
+Status `~/.julia/dev/PkgPage/page/Project.toml`
   [a93c6f00] DataFrames v0.21.2
   [713c75ef] Franklin v0.8.2
 ```

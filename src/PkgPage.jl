@@ -1,4 +1,4 @@
-module PackagePage
+module PkgPage
 
 import Franklin
 import CommonMark

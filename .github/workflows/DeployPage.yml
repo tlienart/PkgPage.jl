@@ -39,12 +39,12 @@ jobs:
     - run: julia -e '
             using Pkg;
             Pkg.add(["NodeJS", "DataFrames"]);
-            Pkg.add(PackageSpec(url="https://github.com/tlienart/PackagePage.jl"));
+            Pkg.add(PackageSpec(url="https://github.com/tlienart/PkgPage.jl"));
             using NodeJS;
             run(`$(npm_cmd()) install highlight.js`);
             run(`$(npm_cmd()) install purgecss`);
-            import PackagePage;
-            PackagePage.optimize(input="page", output="")'
+            import PkgPage;
+            PkgPage.optimize(input="page", output="")'
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:

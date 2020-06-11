@@ -56,7 +56,7 @@ function newpage(; path="page", overwrite=false)
         end
     end
     mkdir(path)
-    store = joinpath(dirname(pathof(PackagePage)), "web")
+    store = joinpath(dirname(pathof(PkgPage)), "web")
     for obj in readdir(store)
         obj == "DeployPage.yml" && continue
         src = joinpath(store, obj)

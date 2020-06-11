@@ -102,7 +102,7 @@ Variables:
 DO NOT CHANGE THE FOLLOWING DEFINITIONS UNLESS YOU'RE SURE WHAT YOU'RE DOING
 ============================================================================
 These definitions are important for the good functioning of some of the
-commands that are defined and used in PackagePage.
+commands that are defined and used in PkgPage.
 -->
 @def sections = Pair{String,String}[]
 @def section_counter = 1

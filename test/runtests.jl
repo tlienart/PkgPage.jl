@@ -1,7 +1,7 @@
-using PackagePage
+using PkgPage
 using Test
 import Franklin
-const P = PackagePage
+const P = PkgPage
 const F = Franklin
 
 include("testutils.jl")

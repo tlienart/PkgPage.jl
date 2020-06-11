@@ -1,6 +1,6 @@
-name = "PackagePage"
+name = "PkgPage"
 uuid = "e7214860-93a8-4f22-b43d-bd447d1a2094"
-authors = ["Thibaut Lienart <ltib@me.com>"]
+authors = ["Thibaut Lienart, Zlatan Vasović"]
 version = "0.1.0"
 
 [deps]
