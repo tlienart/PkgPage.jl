@@ -19,7 +19,7 @@ The latter allows you to plug in values that you would have defined here.
         a subfolder so for instance `YourPackage.jl/web/`.
 -->
 @def title       = "PkgPage.jl"
-@def description = "Create a beautiful landing page for your package in minutes."
+@def description = "Create a beautiful landing page for your package in less than 10 minutes."
 @def authors     = "Thibaut Lienart and Zlatan Vasović"
 @def prepath     = "PkgPage.jl"
 
