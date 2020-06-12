@@ -87,7 +87,7 @@ function fill(v::Val{:docs_url})
     try 
         git_remote = LibGit2.get(GitRemote, GitRepo(pwd()), "origin")
         url = LibGit2.url(git_remote)
-        m = match(r"github\.com/(?<user>.*?)/(?<repo>.*?)(\.git)", url)
+        m = match(r"github\.com\/(?<user>.*?)\/(?<repo>.*?)(\.git)", url)
         docs_url = "https://$(m[:user]).github.io/$(m[:repo])/stable/"
         return docs_url
     catch e 
@@ -99,7 +99,7 @@ function fill(v::Val{:github_repo})
     try 
         git_remote = LibGit2.get(GitRemote, GitRepo(pwd()), "origin")
         url = LibGit2.url(git_remote)
-        url = replace(url, r"https?://github\.com/" => "")
+        url = replace(url, r"https?://github\.com\/" => "")
         url = replace(url, r"\.git$" => "")
         return url
     catch 
