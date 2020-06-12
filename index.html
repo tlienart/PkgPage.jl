@@ -202,7 +202,7 @@ text
 </li>
 </ul>
 <p><strong>Figures</strong>: you can indicate a figure as follows:</p>
-<pre><code class="plaintext hljs">\figure{path="...", opts...}</code></pre>
+<pre><code class="plaintext hljs">\figure{path=&quot;...&quot;, opts...}</code></pre>
 <p>where <code>path</code> is a valid path to the image &#40;e.g. <code>/assets/image.png</code>&#41; and the other available options are:</p>
 <ul>
 <li><p><code>width&#61;&quot;...&quot;</code> to specify the width of the image &#40;e.g. <code>100&#37;</code>&#41;,</p>
@@ -223,12 +223,12 @@ Panoramic view of the Tara Cathedrals (taken from Wikimedia).
 </figure>
 </div>
 <p><strong>Tables</strong>: you can insert a table as follows:</p>
-<pre><code class="plaintext hljs">\table{"""
+<pre><code class="plaintext hljs">\table{&quot;&quot;&quot;
 | Column One | Column Two | Column Three |
 |:---------- | ---------- |:------------:|
 | Row `1`    | Column `2` |              |
 | *Row* 2    | **Row** 2  | Column ``3`` |
-""", opts...}</code></pre>
+&quot;&quot;&quot;, opts...}</code></pre>
 <p>where the available options are:</p>
 <ul>
 <li><p><code>caption&#61;&quot;...&quot;</code>: to add a caption to the table,</p>
@@ -326,16 +326,16 @@ Content of a second column here
   [a93c6f00] DataFrames v0<span class="hljs-number">.21</span><span class="hljs-number">.2</span>
   [<span class="hljs-number">713</span>c75ef] Franklin v0<span class="hljs-number">.8</span><span class="hljs-number">.2</span></code></pre>
 <p>Also add the package in the <code>DeployPage.yml</code> e.g. in our case there is:</p>
-<pre><code class="julia hljs">Pkg.add([<span class="hljs-string">"NodeJS"</span>, <span class="hljs-string">"DataFrames"</span>]);</code></pre>
+<pre><code class="julia hljs">Pkg.add([<span class="hljs-string">&quot;NodeJS&quot;</span>, <span class="hljs-string">&quot;DataFrames&quot;</span>]);</code></pre>
 <p>Once that&#39;s set up, you can use &quot;named&quot; code blocks i.e. code blocks that look like</p>
 <pre><code class="julia hljs"><span class="hljs-string">``</span><span class="hljs-string">`julia:ex
 using DataFrames
-df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
+df = DataFrame(A = 1:4, B = [&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;])
 first(df, 3)
 `</span><span class="hljs-string">``</span></code></pre>
 <p>where <code>:ex</code> is the &quot;named part&quot; &#40;<code>ex</code> being the name, which should be unique on the page&#41;.</p>
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DataFrames
-df = DataFrame(A = <span class="hljs-number">1</span>:<span class="hljs-number">4</span>, B = [<span class="hljs-string">"M"</span>, <span class="hljs-string">"F"</span>, <span class="hljs-string">"F"</span>, <span class="hljs-string">"M"</span>])
+df = DataFrame(A = <span class="hljs-number">1</span>:<span class="hljs-number">4</span>, B = [<span class="hljs-string">&quot;M&quot;</span>, <span class="hljs-string">&quot;F&quot;</span>, <span class="hljs-string">&quot;F&quot;</span>, <span class="hljs-string">&quot;M&quot;</span>])
 first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plaintext hljs">3×2 DataFrames.DataFrame
 │ Row │ A     │ B      │
 │     │ Int64 │ String │
