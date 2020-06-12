@@ -43,6 +43,67 @@ function optimize(; input="page", output="")
     return nothing
 end
 
+#=
+    DEFAULT fill functions for config.md
+=#
+fill_default(::Val{:title}) = "YourPackage.jl"
+fill_default(::Val{:authors}) = "Grace Hopper, Rick Sanchez"
+fill_default(::Val{:docs_url}) = "https://franklinjl.org/"
+fill_default(::Val{:github_repo}) = "tlienart/Franklin.jl"
+
+fill(v) = fill_default(v)
+
+function fill(v::Val{:title})
+    if isfile("Project.toml")
+        toml_dir = Pkg.TOML.parsefile("Project.toml")
+        if haskey(toml_dir, "name")
+            return toml_dir["name"]
+        end
+    end
+    return fill_default(v)
+end
+
+
+function fill(v::Val{:authors})
+    if isfile("Project.toml")
+        toml_dir = Pkg.TOML.parsefile("Project.toml")
+        if haskey(toml_dir, "authors")
+            # remove
+            authors = toml_dir["authors"]
+            # remove email addresses
+            for i = 1:length(authors)
+                authors[i] = strip(replace(authors[i], r"<(.*?)>" => ""))
+            end
+            return join(authors, ", ")
+        end
+    end
+    return fill_default(v)
+end
+
+function fill(v::Val{:docs_url})
+    try 
+        git_remote = LibGit2.get(GitRemote, GitRepo(pwd()), "origin")
+        url = LibGit2.url(git_remote)
+        m = match(r"github\.com/(?<user>.*?)/(?<repo>.*?)(\.git)", url)
+        docs_url = "https://$(m[:user]).github.io/$(m[:repo])/stable/"
+        return docs_url
+    catch e 
+        return fill_default(v)
+    end
+end
+
+function fill(v::Val{:github_repo})
+    try 
+        git_remote = LibGit2.get(GitRemote, GitRepo(pwd()), "origin")
+        url = LibGit2.url(git_remote)
+        url = replace(url, r"https?://github\.com/" => "")
+        url = replace(url, r"\.git$" => "")
+        return url
+    catch 
+        return fill_default(v)
+    end
+end
+
 """
     newpage()
 """
@@ -59,6 +120,7 @@ function newpage(; path="page", overwrite=false)
     store = joinpath(dirname(pathof(PkgPage)), "web")
     for obj in readdir(store)
         obj == "DeployPage.yml" && continue
+        obj == "config.md" && continue
         src = joinpath(store, obj)
         dst = joinpath(path, obj)
         cp(src, dst)
@@ -69,6 +131,18 @@ function newpage(; path="page", overwrite=false)
             chmod(joinpath(root, file), 0o644)
         end
     end
+    # Try filling `config.md`
+    name = "config.md"
+    src = joinpath(store, name)
+    config = read(src, String)
+    dst = joinpath(path, name)
+    try 
+        config = replace(config, r"{{ ([a-z_]+) }}" => x->fill(Val(Symbol(x[4:end-3]))))
+        write(dst, config)
+    catch e
+        cp(src, dst, force=false)
+    end
+
     # Try placing the `DeployPage.yml`
     name = "DeployPage.yml"
     gapath = mkpath(joinpath(".github", "workflows"))

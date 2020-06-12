@@ -10,9 +10,9 @@ The latter allows you to plug in values that you would have defined here.
 -->
 
 <!-- META DEFINITIONS -->
-@def title        = "YourPackage.jl"
+@def title        = "{{ title }}"
 @def description  = "Short description of your package"
-@def authors      = "Grace Hopper, Rick Sanchez"
+@def authors      = "{{ authors }}"
 @def prepath      = "YourPackage.jl"
 @def favicon_path = "/assets/favicon.ico"
 
@@ -26,7 +26,7 @@ The latter allows you to plug in values that you would have defined here.
   - nav_logo_path: where the logo is
 -->
 @def add_docs  = true
-@def docs_url  = "https://franklinjl.org/"
+@def docs_url  = "{{ docs_url }}"
 @def docs_name = "Docs"
 
 @def add_nav_logo   = true
@@ -58,7 +58,7 @@ The latter allows you to plug in values that you would have defined here.
     """
 @def header_padding_top  = "55px" <!-- 55 = touching nav bar -->
 @def add_github_button   = true
-@def github_repo         = "tlienart/Franklin.jl"
+@def github_repo         = "{{ github_repo }}"
 
 <!-- COLOR PALETTE
 you can use Hex, RGB or SVG color names
