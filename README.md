@@ -1,6 +1,6 @@
 # PkgPage.jl
 
-[![Build Status](https://travis-ci.com/tlienart/PackagePage.jl.svg?branch=master)](https://travis-ci.com/tlienart/PackagePage.jl)
+[![Build Status](https://travis-ci.com/tlienart/PkgPage.jl.svg?branch=master)](https://travis-ci.com/tlienart/PkgPage.jl)
 
 Create a beautiful landing page for your package in less than 10 minutes.
 
