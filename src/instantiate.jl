@@ -1,3 +1,5 @@
+const VALUE_REGEX = r"{{\s*(?<name>[a-z_]+)\s*}}"
+
 # Piracy to avoid code caching and reduce risks of silly
 # errors and hard-to-understand error messages.
 function serve(path="page")
@@ -51,11 +53,12 @@ fill_default(::Val{:authors}) = "Grace Hopper, Rick Sanchez"
 fill_default(::Val{:docs_url}) = "https://franklinjl.org/"
 fill_default(::Val{:github_repo}) = "tlienart/Franklin.jl"
 
+fill(v::SubString) = fill(Val(Symbol(v)))
 fill(v) = fill_default(v)
 
 function fill(v::Val{:title})
     if isfile("Project.toml")
-        toml_dir = Pkg.TOML.parsefile("Project.toml")
+        toml_dir = TOML.parsefile("Project.toml")
         if haskey(toml_dir, "name")
             return toml_dir["name"]
         end
@@ -66,7 +69,7 @@ end
 
 function fill(v::Val{:authors})
     if isfile("Project.toml")
-        toml_dir = Pkg.TOML.parsefile("Project.toml")
+        toml_dir = TOML.parsefile("Project.toml")
         if haskey(toml_dir, "authors")
             # remove
             authors = toml_dir["authors"]
@@ -136,12 +139,8 @@ function newpage(; path="page", overwrite=false)
     src = joinpath(store, name)
     config = read(src, String)
     dst = joinpath(path, name)
-    try 
-        config = replace(config, r"{{ ([a-z_]+) }}" => x->fill(Val(Symbol(x[4:end-3]))))
-        write(dst, config)
-    catch e
-        cp(src, dst, force=false)
-    end
+    config = replace(config, VALUE_REGEX => s->match(VALUE_REGEX, s)[:name] |> fill)
+    write(dst, config)
 
     # Try placing the `DeployPage.yml`
     name = "DeployPage.yml"
