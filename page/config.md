@@ -68,18 +68,18 @@ The latter allows you to plug in values that you would have defined here.
 @def github_repo         = "tlienart/PkgPage.jl"
 
 <!-- COLOR PALETTE
-you can use hex, rgb or svg color names
+you can use Hex, RGB or SVG color names
 These tools are useful:
   - color wheel: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool
   - color names: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 
 Variables:
-  - header_col: background color of the header
-  - link_col: color of links
-  - link_hover_col: color of links when hovered
-  - section_bg_col_2: background color of "secondary" sections to help visually
+  - header_color: background color of the header
+  - link_color: color of links
+  - link_hover_color: color of links when hovered
+  - section_bg_color: background color of "secondary" sections to help visually
         separate between sections.
-  - footer_link_col: color of links in the footer
+  - footer_link_color: color of links in the footer
 -->
 
     <!-- General layout -->
