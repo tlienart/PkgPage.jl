@@ -44,7 +44,7 @@ lx_column(com, _) = "@@col $(proc(com)) @@"
 # SECTION
 #
 
-function _begin_section(; title="", name=title)
+function _begin_section(; title="", name=title, width=8)
     id = F.refstring(name)
     pair = (id => name)
     if pair in F.locvar("sections")
@@ -62,7 +62,7 @@ function _begin_section(; title="", name=title)
         <section id=\"$id\" class=\"$class\">
           <div class="container">
             <div class="row">
-              <div class="col-lg-8 mx-auto">
+              <div class="col-lg-$width mx-auto">
                 <h2>
                   $title
                 </h2>

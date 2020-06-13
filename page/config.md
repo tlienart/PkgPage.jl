@@ -108,8 +108,10 @@ NOTE:
 @def code_border_radius = "10px"
 @def code_output_indent = "15px"
 
-<!-- YOUR DEFINITIONS
 
+<!-- YOUR DEFINITIONS
+See franklinjl.org for more information on how to introduce your own
+definitions and how they can be useful.
 -->
 
 
