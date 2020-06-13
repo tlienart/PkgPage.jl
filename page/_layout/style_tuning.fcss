@@ -18,13 +18,17 @@ footer a {
   color: {{footer_link_color}};
 }
 
-header {
-  padding-top: {{header_padding_top}} !important;
-}
-
 {{if use_hero}}
 .jumbotron {
   width: {{hero_width}};
+}
+
+header {
+  margin-top: {{hero_margin_top}} !important;
+}
+{{else}}
+header {
+  margin-top: {{header_margin_top}} !important;
 }
 {{end}}
 
