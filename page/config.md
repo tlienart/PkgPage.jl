@@ -60,7 +60,7 @@ The latter allows you to plug in values that you would have defined here.
   - header_padding_top: vertical padding above the header, if over ~55px, there
                         will be white space between the navbar and the header.
   - add_github_button:  whether to add a "Star this package" button in header
-  - github_repo:        path to the github repo for the github button
+  - github_repo:        path to the GitHub repo for the GitHub button
 -->
 
 @def use_hero            = false
