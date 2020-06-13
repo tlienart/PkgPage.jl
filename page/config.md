@@ -51,6 +51,8 @@ The latter allows you to plug in values that you would have defined here.
   NOTE:
   - use_hero:           if false, main bar stretches from left to right
                         otherwise boxed
+  - hero_width:         width of the hero, for instance 80% will mean the
+                        hero will stretch over 80% of the width of the page.
   - use_header_img:     to use an image as background for the header
   - header_img_path:    either a path to an asset or a SVG like here. Note that
                         the path must be CSS-compatible.
@@ -59,20 +61,32 @@ The latter allows you to plug in values that you would have defined here.
                         no-repeat.
   - header_padding_top: vertical padding above the header, if over ~55px, there
                         will be white space between the navbar and the header.
+                        When use_hero = true, you will typically want this to
+                        be around 100px.
   - add_github_button:  whether to add a "Star this package" button in header
   - github_repo:        path to the GitHub repo for the GitHub button
 -->
 
-@def use_hero            = false
+@def use_hero   = false
+@def hero_width = "80%";
+
 @def use_header_img      = true
 @def header_img_path     = "url(\"assets/diagonal-lines.svg\")"
 @def header_img_style    = """
                            background-repeat: repeat;
                            """
-@def header_padding_top  = "55px" <!-- 55 = touching nav bar -->
+@def header_padding_top  = "100px" <!-- 55 = touching nav bar -->
 
 @def add_github_button   = true
 @def github_repo         = "tlienart/PkgPage.jl"
+
+<!-- SECTION LAYOUT
+NOTE:
+  - section_width:  integer number to control the default width of sections
+                    you can also set it for individual sections by specifying
+                    the width argument: `\begin{:section, ..., width=10}`.
+-->
+@def section_width = 10
 
 <!-- COLOR PALETTE
 You can use Hex, RGB or SVG color names; these tools are useful to choose:

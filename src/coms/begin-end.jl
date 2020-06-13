@@ -44,7 +44,9 @@ lx_column(com, _) = "@@col $(proc(com)) @@"
 # SECTION
 #
 
-function _begin_section(; title="", name=title, width=8)
+function _begin_section(; title="", name=title,
+                          width=F.globvar("section_width"))
+    width = ifelse(isnothing(width), 10, width)
     id = F.refstring(name)
     pair = (id => name)
     if pair in F.locvar("sections")

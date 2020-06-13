@@ -1,4 +1,5 @@
 using PkgPage
+using Pkg
 using Test
 import Franklin
 using NodeJS

@@ -29,9 +29,11 @@
     end
 
     @testset "optimize" begin
-        PkgPage.optimize(; input="foo", output="bar", purge=false)
+        PkgPage.optimize(; input="foo", output="bar", purge=false,
+                           prerender=false)
         @test readdir(joinpath("foo", "__site")) == ["bar"]
         @test isfile(joinpath("foo", "__site", "bar", "index.html"))
     end
     cd(bk)
+    Pkg.activate()
 end

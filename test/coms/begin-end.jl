@@ -12,7 +12,7 @@ end
         ~~~<section id="aaa" class="scrollspy">
           <div class="container">
             <div class="row">
-              <div class="col-lg-8 mx-auto">
+              <div class="col-lg-10 mx-auto">
                 <h2>
                   aaa
                 </h2>
