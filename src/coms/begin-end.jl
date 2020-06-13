@@ -53,13 +53,13 @@ function _begin_section(; title="", name=title)
     push!(F.LOCAL_VARS["sections"].first, pair)
     counter = F.globvar("section_counter")
     F.set_var!(F.GLOBAL_VARS, "section_counter", counter+1)
-    class = ""
+    class = "scrollspy"
     if iseven(counter)
-        class = "class=\"section-bg-color\""
+        class *= " section-bg-color"
     end
     return html(
         """
-        <section id=\"$id\" $class>
+        <section id=\"$id\" class=\"$class\">
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
