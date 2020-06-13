@@ -9,10 +9,10 @@ end
     h = lx_begin(c,0)
     @test F.globvar("section_counter") == counter + 1
     @test isapproxstr(strip(h), """
-        ~~~<section id=\"aaa\" >
-          <div class=\"container\">
-            <div class=\"row\">
-              <div class=\"col-lg-8 mx-auto\">
+        ~~~<section id="aaa" class="scrollspy">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
                 <h2>
                   aaa
                 </h2>
