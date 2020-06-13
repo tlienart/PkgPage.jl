@@ -38,7 +38,7 @@ function newpage(; path="page", overwrite=false)
     gapath = mkpath(joinpath(".github", "workflows"))
     src = joinpath(store, name)
     dst = joinpath(gapath, name)
-    cp(src, dst, force=false)
+    cp(src, dst, force=overwrite)
     chmod(dst, 0o644)
     return nothing
 end
@@ -65,10 +65,10 @@ end
 
 # Piracy to avoid code caching and reduce risks of silly
 # errors and hard-to-understand error messages.
-function serve(path="page")
+function serve(path="page"; kw...)
     bkpath, outside = clever_cd(path)
     try
-        F.serve(clear=true)
+        F.serve(clear=true; kw...)
     catch e
         @show e
     finally
@@ -79,19 +79,22 @@ end
 
 # Should only be called in the deploy (by github-action) or via `publish`
 # assumes that `purgecss` is available to NodeJS.
-function optimize(; input="page", output="")
+function optimize(; input="page", output="", purge=true, kw...)
     occursin("/", output) &&
         error("No depth allowed in `output`: it should either be an " *
               "empty string or something like `web` or `page`.")
     bkpath, outside = clever_cd(input)
 
     # Optimization phase
-    F.optimize(minify=false)
-    # Purge CSS to decrease bootstrap size massively
-    io = IOBuffer()
-    run(pipeline(`$(NodeJS.npm_cmd()) root`, stdout=io))
-    nodepath = String(take!(io))
-    run(`$(strip(nodepath))/purgecss/bin/purgecss --css __site/css/bootstrap.min.css --content __site/index.html --output __site/css/bootstrap.min.css`)
+    F.optimize(; minify=false, kw...)
+
+    if purge
+        # Purge CSS to decrease bootstrap size massively
+        io = IOBuffer()
+        run(pipeline(`$(NodeJS.npm_cmd()) root`, stdout=io))
+        nodepath = String(take!(io))
+        run(`$(strip(nodepath))/purgecss/bin/purgecss --css __site/css/bootstrap.min.css --content __site/index.html --output __site/css/bootstrap.min.css`)
+    end
 
     # if required, copy the content of `__site` to a subfolder so that
     # that subfolder can be deployed. It's the user's responsibility to

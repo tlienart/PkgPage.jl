@@ -181,6 +181,57 @@ You can also define your own commands which can be as complex as you might want,
 
 \end{:section}
 
+
+<!-- =============================
+     SHOWING CODE
+    ============================== -->
+
+\begin{:section, title="Showing Code"}
+
+\lead{
+    Franklin can run your Julia code on the fly and show the output.
+}
+
+**Setting up the environment**: the first step is to ensure that the folder with your source has the proper environment including your package.
+To do so, in the Julia REPL, navigate to the source (e.g. `cd("page/")`), activate the environment (e.g. `using Pkg; Pkg.activate()`) and add the package(s) that you need (e.g. `Pkg.add("DataFrames")`).
+If you check the status or the Project.toml, you will see that `Franklin` is already in there on top of whatever packages you might have chosen to add.
+In our current case:
+
+```
+Status `~/.julia/dev/PkgPage/page/Project.toml`
+  [a93c6f00] DataFrames v0.21.2
+  [713c75ef] Franklin v0.8.2
+```
+
+Also add the package in the `DeployPage.yml` e.g. in our case there is:
+
+```julia
+Pkg.add(["NodeJS", "DataFrames"]);
+```
+
+Once that's set up, you can use "named" code blocks i.e. code blocks that look like
+
+`````
+```julia:ex
+using DataFrames
+df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
+first(df, 3)
+```
+`````
+
+where `:ex` is the "named part" (`ex` being the name, which should be unique on the page).
+
+```julia:ex
+using DataFrames
+df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
+first(df, 3)
+```
+
+You can control the indentation and appearance of the output block in the `config.md` too.
+
+\end{:section}
+
+
 <!-- =============================
      Deploying
     ============================== -->
@@ -232,54 +283,5 @@ run(`$(npm_cmd()) install purgecss`);
 \\
 * run `PkgPage.optimize(input="page", output="")` (adapting `input` as required)
 * place the content of `page/__site` wherever your server requires it.
-
-\end{:section}
-
-<!-- =============================
-     SHOWING CODE
-    ============================== -->
-
-\begin{:section, title="Showing Code"}
-
-\lead{
-    Franklin can run your Julia code on the fly and show the output.
-}
-
-**Setting up the environment**: the first step is to ensure that the folder with your source has the proper environment including your package.
-To do so, in the Julia REPL, navigate to the source (e.g. `cd("page/")`), activate the environment (e.g. `using Pkg; Pkg.activate()`) and add the package(s) that you need (e.g. `Pkg.add("DataFrames")`).
-If you check the status or the Project.toml, you will see that `Franklin` is already in there on top of whatever packages you might have chosen to add.
-In our current case:
-
-```
-Status `~/.julia/dev/PkgPage/page/Project.toml`
-  [a93c6f00] DataFrames v0.21.2
-  [713c75ef] Franklin v0.8.2
-```
-
-Also add the package in the `DeployPage.yml` e.g. in our case there is:
-
-```julia
-Pkg.add(["NodeJS", "DataFrames"]);
-```
-
-Once that's set up, you can use "named" code blocks i.e. code blocks that look like
-
-`````
-```julia:ex
-using DataFrames
-df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
-first(df, 3)
-```
-`````
-
-where `:ex` is the "named part" (`ex` being the name, which should be unique on the page).
-
-```julia:ex
-using DataFrames
-df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
-first(df, 3)
-```
-
-You can control the indentation and appearance of the output block in the `config.md` too.
 
 \end{:section}

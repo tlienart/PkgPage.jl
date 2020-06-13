@@ -17,4 +17,26 @@ end
                   aaa
                 </h2>
         ~~~""")
+    c = lxc(raw"""\end{:section}""")
+    h = lx_end(c,0)
+    @test isapproxstr(h, """~~~
+                </div>
+              </div>
+            </div>
+          </section>
+          ~~~""")
+end
+
+@testset "columns" begin
+    c = lxc(raw"""\begin{:columns}""")
+    h = lx_begin(c,0)
+    @test isapproxstr(h, """~~~
+        <div class=\"container\">
+          <div class=\"row\">
+        ~~~""")
+    c = lxc(raw"""\end{:columns}""")
+    h = lx_end(c,0)
+    @test isapproxstr(h, """~~~
+        </div></div>
+        ~~~""")
 end

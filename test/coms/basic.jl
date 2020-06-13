@@ -17,6 +17,16 @@ end
         </figure>~~~""")
 end
 
+@testset "lx_alert" begin
+    c = lxc("""\\alert{foo **bar** baz}""")
+    @test isapproxstr(lx_alert(c,0), """~~~
+        <div class="alert alert-info" role="alert">
+          ~~~
+          foo **bar** baz
+          ~~~
+        </div>~~~""")
+end
+
 @testset "lx_table" begin
     c = lxc("""\\table{\"\"\"
         | A   | B   |

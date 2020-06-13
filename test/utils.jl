@@ -35,3 +35,12 @@ end
         """
     @test_throws ErrorException P.lxargs(s)
 end
+
+@testset "invalid" begin
+    c = lxc("""\\table{a:3}""")
+    @test_throws Exception lx_table(c,0)
+    c = lxc("""\\table{a=5}""")
+    @test_throws Exception lx_table(c,0)
+    c = lxc("""\\table{\"\"b}""")
+    @test_throws Exception lx_table(c,0)
+end
