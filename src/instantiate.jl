@@ -1,25 +1,46 @@
+function clever_cd(path)
+    # try to be clever, in some circumstances, we might be in the "page"
+    # folder where this expects us to be one level up; if that's the case
+    # don't move.
+    # cases covered:
+    #   1. we're at the proper level, cd serve & cd back
+    #   2. we're in the folder, don't cd and serve
+    #   3. user is somewhere else --> error
+    bkpath  = pwd()
+    inside  = isfile("config.md") && isdir("_layout")
+    outside = !inside && isdir(path)
+    if !(case1 || case2)
+        error("Your current path does not seem to contain content for a " *
+              "package page that matches `path=$path`; maybe you forgot to " *
+              "call `instantiate`?")
+    end
+    outside && cd(path)
+    return (bkpath, outside)
+end
+
 # Piracy to avoid code caching and reduce risks of silly
 # errors and hard-to-understand error messages.
 function serve(path="page")
-    isdir(path) || error("Couldn't find path '$path'.")
-    bk = pwd()
-    cd(path)
+    bkpath, outside = clever_cd(path)
     try
         F.serve(clear=true)
     catch e
         @show e
     finally
-        cd(bk)
+        outside && cd(bkpath)
     end
     return nothing
 end
 
-# Should only be called in the deploy (on github-action)
+# Should only be called in the deploy (by github-action) or via `publish`
+# assumes that `purgecss` is available to NodeJS.
 function optimize(; input="page", output="")
-    isdir(input) || error("Couldn't find the folder '$input'.")
-    occursin("/", output) && error("No depth allowed in output.")
-    bk = pwd()
-    cd(input)
+    occursin("/", output) &&
+        error("No depth allowed in `output`: it should either be an " *
+              "empty string or something like `web` or `page`.")
+    bkpath, outside = clever_cd(input)
+
+    # Optimization phase
     F.optimize(minify=false)
     # Purge CSS to decrease bootstrap size massively
     io = IOBuffer()
@@ -27,24 +48,26 @@ function optimize(; input="page", output="")
     nodepath = String(take!(io))
     run(`$(strip(nodepath))/purgecss/bin/purgecss --css __site/css/bootstrap.min.css --content __site/index.html --output __site/css/bootstrap.min.css`)
 
-    isempty(output) && (cd(bk); return nothing)
-
-    # copy the content of `__site` to `__site/$output`, it's
-    # the user's responsibility to check this is valid (i.e. that
-    # there isn't already a folder $output...)
-    outp = mkpath(joinpath("__site", output))
-    for obj in readdir("__site")
-        obj == output && continue
-        src = joinpath("__site", obj)
-        dst = joinpath(outp, obj)
-        mv(src, dst; force=true)
+    # if required, copy the content of `__site` to a subfolder so that
+    # that subfolder can be deployed. It's the user's responsibility to
+    # ensure that there isn't already a folder $output.
+    if !isempty(output)
+        outp = mkpath(joinpath("__site", output))
+        for obj in readdir("__site")
+            obj == output && continue
+            src = joinpath("__site", obj)
+            dst = joinpath(outp, obj)
+            mv(src, dst; force=true)
+        end
     end
-    cd(bk)
+    outside && cd(bkpath)
     return nothing
 end
 
 """
     newpage()
+
+Create a new package page
 """
 function newpage(; path="page", overwrite=false)
     if isdir(path)
@@ -69,6 +92,7 @@ function newpage(; path="page", overwrite=false)
             chmod(joinpath(root, file), 0o644)
         end
     end
+
     # Try placing the `DeployPage.yml`
     name = "DeployPage.yml"
     gapath = mkpath(joinpath(".github", "workflows"))
