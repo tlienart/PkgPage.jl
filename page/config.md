@@ -75,7 +75,7 @@ The latter allows you to plug in values that you would have defined here.
 @def header_img_style    = """
                            background-repeat: repeat;
                            """
-@def header_padding_top  = "100px" <!-- 55 = touching nav bar -->
+@def header_padding_top  = "55px" <!-- 55 = touching nav bar -->
 
 @def add_github_button   = true
 @def github_repo         = "tlienart/PkgPage.jl"
