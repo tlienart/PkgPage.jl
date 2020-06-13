@@ -30,6 +30,13 @@ section h2 { margin-bottom: 1em;}
 
 .katex { font-size: 1em !important;}
 
+a.anchor {
+    display: block;
+    position: relative;
+    top: -150px;
+    visibility: hidden;
+}
+
 /* CODE */
 
 pre { margin-bottom: 0.5em; }

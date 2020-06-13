@@ -5,5 +5,15 @@
   {{ if hascode }}
       {{ insert foot_highlight.html }}
   {{ end }}
+  <script src="/libs/simple-scrollspy.min.js"></script>
+  <script>
+  window.onload = function () {
+    scrollSpy('#navbarResponsive', {
+      sectionClass: '.scrollspy',
+      menuActiveTarget: '.nav-link',
+      offset: 100
+    })
+  }
+  </script>
   </body>
 </html>

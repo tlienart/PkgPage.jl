@@ -22,6 +22,12 @@ header {
   padding-top: {{header_padding_top}} !important;
 }
 
+{{if use_hero}}
+.jumbotron {
+  width: {{hero_width}};
+}
+{{end}}
+
 {{if use_header_img}}
 .jumbotron {
   background-image: {{header_img_path}};

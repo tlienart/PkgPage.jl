@@ -44,7 +44,9 @@ lx_column(com, _) = "@@col $(proc(com)) @@"
 # SECTION
 #
 
-function _begin_section(; title="", name=title)
+function _begin_section(; title="", name=title,
+                          width=F.globvar("section_width"))
+    width = ifelse(isnothing(width), 10, width)
     id = F.refstring(name)
     pair = (id => name)
     if pair in F.locvar("sections")
@@ -53,16 +55,16 @@ function _begin_section(; title="", name=title)
     push!(F.LOCAL_VARS["sections"].first, pair)
     counter = F.globvar("section_counter")
     F.set_var!(F.GLOBAL_VARS, "section_counter", counter+1)
-    class = ""
+    class = "scrollspy"
     if iseven(counter)
-        class = "class=\"section-bg-color\""
+        class *= " section-bg-color"
     end
     return html(
         """
-        <section id=\"$id\" $class>
+        <section id=\"$id\" class=\"$class\">
           <div class="container">
             <div class="row">
-              <div class="col-lg-8 mx-auto">
+              <div class="col-lg-$width mx-auto">
                 <h2>
                   $title
                 </h2>

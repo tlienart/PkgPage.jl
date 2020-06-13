@@ -38,9 +38,11 @@ julia> serve()
 
 The `newpage` call will
 * generate a `page/` folder in your current directory which contains all the material to generate your site,
+    * modify `page/config.md` to change the description, layout, colors etc.,
+    * modify `page/index.md` to change the content.
 * place a `.github/workflows/DeployPage.yml` to enable the github action that will help deploy your page.
 
-The `serve` call will render your page and make it available for live-preview in your browser.
+The `serve` call will render your page and make it available for live-preview in your browser when you make modifications to either `config.md` or `index.md`.
 
 \alert{You can specify another folder name via `newpage(path="page2")` but don't forget to modify this in the `DeployPage.yml` as well (in 2 spots).}
 
@@ -51,9 +53,17 @@ The `serve` call will render your page and make it available for live-preview in
      ============================== -->
 \begin{:section, title="Commands"}
 
-\lead{PkgPage makes a few commands available to you to simplify the insertion of common useful environments.
+\lead{PkgPage makes a few special commands available to you to simplify the insertion of common useful environments.
 }
 
+* [Sections](#com-sections)
+* [Figures](#com-figures)
+* [Tables](#com-tables)
+* [Columns](#com-columns)
+* [Maths](#com-maths)
+* [Misc](#com-misc)
+
+\label{com-sections}
 **Sections**: you can indicate a section as follows:
 
 ```plaintext
@@ -66,7 +76,8 @@ where the available options are:
 
 * `title="..."` to add a heading to the section, this should be provided,
 * `name="..."` to add a specific name that will appear in the navbar (if not given, it will use the given title).
-
+* `width=8` an integer number controlling the width of the section with respect to the body, increase it to get a wider section.
+\label{com-figures}
 **Figures**: you can indicate a figure as follows:
 
 ```plaintext
@@ -84,12 +95,13 @@ where `path` is a valid path to the image (e.g. `/assets/image.png`) and the oth
   \figure{path="/assets/nice_image.jpg", width="100%", style="border-radius:5px;", caption="Panoramic view of the Tara Cathedrals (taken from Wikimedia)."}
 }
 
+\label{com-tables}
 **Tables**: you can insert a table as follows:
 
 ```plaintext
 \table{"""
 | Column One | Column Two | Column Three |
-|:---------- | ---------- |:------------:|
+|----------: | ---------- |:------------:|
 | Row `1`    | Column `2` |              |
 | *Row* 2    | **Row** 2  | Column ``3`` |
 """, opts...}
@@ -110,32 +122,38 @@ where the available options are:
     """, caption="A simple table", class="table-striped"}
 }
 
+\label{com-columns}
 **Columns**: you can declare an environment with columns with:
 
 ```plaintext
 \begin{:columns}
 \column{
-Content of a first column  here
+...
 }
 \column{
-Content of a second column here
+...
 }
 \end{:columns}
 ```
 
-which will look like:
+For instance you can use this to produce:
 
 \begin{:columns}
 \column{
-_Content of a first column here_
+**_Content of a first column here_**
+
+Here is some more content for that first column.
 }
 \column{
-_Content of a second column here_
+**_Content of a second column here_**
+
+Here is some more content for that second column.
 }
 \end{:columns}
 
 \\
 
+\label{com-maths}
 **Maths**
 
 Just use `$$ ... $$` for display math and  `$ ... $` for inline maths:
@@ -144,49 +162,25 @@ $$ w_i = {2 \over (1-x_i^2)[P'_n(x_i)]^2} $$ <!--_-->
 
 where $P_n$ is the $n$-th [Legendre polynomial](https://en.wikipedia.org/wiki/Legendre_polynomials) and $x_i$ is it's $i$-th root.
 
+\label{com-misc}
 **Misc**
 
 * you can use `\\` to add some vertical space (skip a line)
+\\
 * you can use `\center{...}` to center some content
-* you can use `\style{color:red;text-transform:capitalize;}{hello}` to get something like \style{color:red;text-transform:uppercase;}{hello},
+\center{
+_some centered content_
+\\\\
+}
+* you can use `\style{css}{content}` to get css-styled text for instance `\style{color:red;text-transform:uppercase;}{hello}` gives \style{color:red;text-transform:uppercase;}{hello}
 * you can use `\alert{...}` to draw attention to some text via a coloured box.
+
+\alert{this is an alert}
 
 You can also define your own commands which can be as complex as you might want, see the [Franklin docs](https://franklinjl.org) for more information.
 
 \end{:section}
 
-<!-- =============================
-     Deploying
-    ============================== -->
-
-\begin{:section, title="Deployment"}
-
-\lead{Make your page available online easily by leveraging github actions and GitHub pages.}
-
-By following these instructions, the content of the rendered website will be copied to a `gh-pages` branch where it will be deployed by GitHub.
-If you would like to deploy the page with your own URL or using something else than GitHub, have a  look at the specific instructions further on.
-
-**Keys**: in order to have your page be built and deployed on GitHub, you will need to generate a keypair and add it to the GitHub repo. To do so:
-
-1. run in your terminal  `ssh-keygen -N "" -f franklin`,
-1. copy the entire content of  the `franklin` file and put it as a new secret named `FRANKLIN_PRIV` on <https://github.com/USERNAME/PACKAGE.jl/settings/secrets/new>,
-1. copy the entire content of the  `franklin.pub` file and put it as a new deploy key named `FRANKLIN_PUB` on <https://github.com/USERNAME/PACKAGE.jl/settings/keys> with `read/write` access.
-
-Whenever the `master` branch of your package gets updated, the  build process will be triggered and your page updated.
-That's it.
-
-**Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages`.
-
-\alert{Note that this is typically not necessary as the names created by PkgPage and by Documenter don't clash, but you might still prefer to not mix the two (in which case, read on).}
-
- you can do so in two steps:
-
-1. change the `run` part of `DeployPage.yml` by specifying the `output` keyword argument  in `PkgPage.optimize` for instance: `PkgPage.optimize(input="page", output="page")`,
-1. change the `prepath` in `config.md` to reflect that the base URL will contain that additional folder, for instance `@def prepath = "YourPackage.jl/page"`.
-
-**Use your own URL**: you can usually get your host service like netlify to deploy a specific branch, do make sure to set `@def prepath = ""` in your `config.md` though.
-
-\end{:section}
 
 <!-- =============================
      SHOWING CODE
@@ -234,5 +228,60 @@ first(df, 3)
 ```
 
 You can control the indentation and appearance of the output block in the `config.md` too.
+
+\end{:section}
+
+
+<!-- =============================
+     Deploying
+    ============================== -->
+
+\begin{:section, title="Deployment"}
+
+\lead{Make your page available online easily by leveraging github actions and GitHub pages.}
+
+By following these instructions, the content of the rendered website will be copied to a `gh-pages` branch where it will be deployed by GitHub.
+If you would like to deploy the page with your own URL or using something else than GitHub, have a  look at the specific instructions further on.
+
+**Adjust DeployPage**: start by checking the `.github/workflows/DeployPage.yml` in particular:
+* if you want to use Python or matplotlib, uncomment the relevant lines
+* in the `run` block ensure that
+    * `NodeJS` and `PkgPage` are added,
+    * any packages that your page might rely on are added,
+    * the `optimize` call has the appropriate `input` and `output` path (if you're in the default setting, leave as is).
+
+**Keys**: in order to have your page be built and deployed on GitHub, you will need to generate a keypair and add it to the GitHub repo. To do so:
+
+1. run in your terminal `ssh-keygen -N "" -f franklin`,
+1. copy the entire content of the generated `franklin` file and put it as a new secret named `FRANKLIN_PRIV` on <https://github.com/USERNAME/PACKAGE.jl/settings/secrets/new>,
+1. copy the entire content of the generated `franklin.pub` file and put it as a new deploy key named `FRANKLIN_PUB` on <https://github.com/USERNAME/PACKAGE.jl/settings/keys> with `read/write` access,
+1. remove both files.
+
+Whenever the `master` branch of your package gets updated, the  build process will be triggered and your page updated.
+**That's it**.
+
+**Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages` as Documenter also generates files in `gh-pages`.
+
+\alert{This will typically not be necessary as the names created by PkgPage and Documenter don't clash, but you might still prefer to avoid mixing the two (in which case, read on).}
+
+you can do so in two steps:
+
+1. change the `run` part of `DeployPage.yml` by specifying the `output` keyword argument  in `PkgPage.optimize` for instance: `PkgPage.optimize(input="page", output="page")`,
+1. change the `prepath` in `config.md` to reflect that the base URL will contain that additional folder, for instance `@def prepath = "YourPackage.jl/page"`.
+
+**Use your own URL**: you can usually get host services like Netlify to deploy a specific branch of a GitHub repo, do make sure to set `@def prepath = ""` in your `config.md` though.
+
+If you want to do the deployment without GitHub actions then you will need to:
+
+* ensure you have `purgecss` and `highlights` installed and available to `NodeJS`, the simplest way to do this is to install them via `NodeJS` with
+
+```
+using NodeJS;
+run(`$(npm_cmd()) install highlight.js`);
+run(`$(npm_cmd()) install purgecss`);
+```
+\\
+* run `PkgPage.optimize(input="page", output="")` (adapting `input` as required)
+* place the content of `page/__site` wherever your server requires it.
 
 \end{:section}
