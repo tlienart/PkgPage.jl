@@ -11,7 +11,7 @@ NodeJS = "2bd173c7-0d6d-553b-b6af-13a54713934c"
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [compat]
-CommonMark = "0.3,0.4,0.5"
+CommonMark = "0.3,0.4"
 Franklin = "0.8"
 NodeJS = "1.1"
 julia = "1.3"

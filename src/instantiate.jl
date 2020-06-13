@@ -1,3 +1,48 @@
+"""
+    newpage()
+
+Create a new package page.
+
+Arguments:
+* `path="page"`: the folder to place the source files of your site; these
+                 are the markdown files and configuration files you will need
+                 to adjust based on which your website will be generated.
+* `overwrite=false`: whether to overwrite the folder if it already exists.
+"""
+function newpage(; path="page", overwrite=false)
+    if isdir(path)
+        if !overwrite
+            error("Path '$path' already exists, use `overwrite=true` " *
+                  "if you wish to remove that folder and start again.")
+        else
+            rm(path, recursive=true)
+        end
+    end
+    mkdir(path)
+    store = joinpath(dirname(dirname(pathof(PkgPage))), "page")
+    for obj in readdir(store)
+        obj == "DeployPage.yml" && continue
+        src = joinpath(store, obj)
+        dst = joinpath(path, obj)
+        cp(src, dst)
+    end
+    # Pkg makes files read-only but we don't want that
+    for (root, _, files) ∈ walkdir(path)
+        for file in files
+            chmod(joinpath(root, file), 0o644)
+        end
+    end
+
+    # Try placing the `DeployPage.yml`
+    name = "DeployPage.yml"
+    gapath = mkpath(joinpath(".github", "workflows"))
+    src = joinpath(store, name)
+    dst = joinpath(gapath, name)
+    cp(src, dst, force=false)
+    chmod(dst, 0o644)
+    return nothing
+end
+
 function clever_cd(path)
     # try to be clever, in some circumstances, we might be in the "page"
     # folder where this expects us to be one level up; if that's the case
@@ -9,7 +54,7 @@ function clever_cd(path)
     bkpath  = pwd()
     inside  = isfile("config.md") && isdir("_layout")
     outside = !inside && isdir(path)
-    if !(case1 || case2)
+    if !(inside || outside)
         error("Your current path does not seem to contain content for a " *
               "package page that matches `path=$path`; maybe you forgot to " *
               "call `instantiate`?")
@@ -61,44 +106,5 @@ function optimize(; input="page", output="")
         end
     end
     outside && cd(bkpath)
-    return nothing
-end
-
-"""
-    newpage()
-
-Create a new package page
-"""
-function newpage(; path="page", overwrite=false)
-    if isdir(path)
-        if !overwrite
-            error("Path '$path' already exists, use `overwrite=true` " *
-                  "if you wish to remove that folder and start again.")
-        else
-            rm(path, recursive=true)
-        end
-    end
-    mkdir(path)
-    store = joinpath(dirname(pathof(PkgPage)), "web")
-    for obj in readdir(store)
-        obj == "DeployPage.yml" && continue
-        src = joinpath(store, obj)
-        dst = joinpath(path, obj)
-        cp(src, dst)
-    end
-    # Pkg makes files read-only but we don't want that
-    for (root, _, files) ∈ walkdir(path)
-        for file in files
-            chmod(joinpath(root, file), 0o644)
-        end
-    end
-
-    # Try placing the `DeployPage.yml`
-    name = "DeployPage.yml"
-    gapath = mkpath(joinpath(".github", "workflows"))
-    src = joinpath(store, name)
-    dst = joinpath(gapath, name)
-    cp(src, dst, force=false)
-    chmod(dst, 0o644)
     return nothing
 end
