@@ -55,9 +55,12 @@ The latter allows you to plug in values that you would have defined here.
   - header_img_style:   additional styling, for instance whether to repeat
                         or not. For a SVG pattern, use repeat, otherwise use
                         no-repeat.
-  - header_margin_top:  vertical margin above the header, if over ~59px, there
-                        will be white space between the navbar and the header.
-                        When use_hero = true, hero_margin_top is used instead.
+  - header_margin_top:  vertical margin above the header, if <= 55px there will
+                        be no white space, if >= 60 px, there will be white
+                        space between the navbar and the header. (Ideally
+                        don't pick a value between the two as the exact
+                        look is browser dependent). When use_hero = true,
+                        hero_margin_top is used instead.
   - use_hero:           if false, main bar stretches from left to right
                         otherwise boxed
   - hero_width:         width of the hero, for instance 80% will mean the
@@ -71,7 +74,7 @@ The latter allows you to plug in values that you would have defined here.
 @def header_img_style   = """
                           background-repeat: repeat;
                           """
-@def header_margin_top  = "59px" <!-- 59px = touching nav bar -->
+@def header_margin_top  = "55px" <!-- 55-60px ~ touching nav bar -->
 
 @def use_hero           = false
 @def hero_width         = "80%"
