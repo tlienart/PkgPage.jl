@@ -3,9 +3,10 @@
 [![Build Status](https://travis-ci.com/tlienart/PkgPage.jl.svg?branch=master)](https://travis-ci.com/tlienart/PkgPage.jl)
 [![Coverage](https://codecov.io/gh/tlienart/PkgPage.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/tlienart/PkgPage.jl)
 
-Create a beautiful landing page for your package in less than 10 minutes: [instructions + example](https://tlienart.github.io/PkgPage.jl) (this will also be your starting point)
+> Create a beautiful landing page for your package in less than 10 minutes
 
-**Authors**: Thibaut Lienart, Zlatan Vasović
+* [**Instructions + Example**](https://tlienart.github.io/PkgPage.jl) (this will also be your starting point)
+* **Authors**: Thibaut Lienart, Zlatan Vasović
 
 ## Examples
 
