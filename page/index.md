@@ -238,7 +238,7 @@ You can control the indentation and appearance of the output block in the `confi
 
 \begin{:section, title="Deployment"}
 
-\lead{Make your page available online easily by leveraging github actions and GitHub pages.}
+\lead{Make your page available online easily by leveraging GitHub Actions and GitHub Pages.}
 
 By following these instructions, the content of the rendered website will be copied to a `gh-pages` branch where it will be deployed by GitHub.
 If you would like to deploy the page with your own URL or using something else than GitHub, have a  look at the specific instructions further on.
