@@ -359,7 +359,7 @@ first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plai
         </h2>
 
 <div class="lead">Make your page available online easily by leveraging GitHub Actions and GitHub Pages.</div>
-<p>By following these instructions, the content of the rendered website will be copied to a <code>gh-pages</code> branch where it will be deployed by GitHub. If you would like to deploy the page with your own URL or using something else than GitHub, have a  look at the specific instructions further on.</p>
+<p>By following these instructions, the content of the rendered website will be copied to a <code>gh-pages</code> branch where it will be deployed by GitHub. If you would like to deploy the page with your own URL or using something else than GitHub, have a look at the specific instructions further on.</p>
 <p><strong>Adjust DeployPage</strong>: start by checking the <code>.github/workflows/DeployPage.yml</code> in particular:</p>
 <ul>
 <li><p>if you want to use Python or matplotlib, uncomment the relevant lines</p>
@@ -386,7 +386,9 @@ first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plai
 <li><p>remove both files.</p>
 </li>
 </ol>
-<p>Whenever the <code>master</code> branch of your package gets updated, the  build process will be triggered and your page updated. <strong>That&#39;s it</strong>.</p>
+<p>Whenever the <code>master</code> branch of your package gets updated, the  build process will be triggered and your page updated. <strong>That&#39;s basically it</strong>.</p>
+<div class="alert alert-info" role="alert">
+ In order to avoid having GitHub mark your repo as a CSS/HTML repo instead of a Julia one, you will want to tell it to ignore the <code>page/</code> folder &#40;or whatever you named the folder&#41; for the language statistics. To do so, add a file <code>.gitattributes</code> in your repo with <code>page/* linguist-vendored</code> such as <a href="https://github.com/tlienart/PkgPage.jl/blob/master/.gitattributes">the one we use</a>. </div>
 <p><strong>Avoiding clashes with Documenter.jl</strong>: if you already use <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> you might want your page to be deployed in a specific folder of <code>gh-pages</code> as Documenter also generates files in <code>gh-pages</code>.</p>
 <div class="alert alert-info" role="alert">
  This will typically not be necessary as the names created by PkgPage and Documenter don&#39;t clash, but you might still prefer to avoid mixing the two &#40;in which case, read on&#41;. </div>
