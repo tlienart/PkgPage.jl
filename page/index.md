@@ -241,7 +241,7 @@ You can control the indentation and appearance of the output block in the `confi
 \lead{Make your page available online easily by leveraging GitHub Actions and GitHub Pages.}
 
 By following these instructions, the content of the rendered website will be copied to a `gh-pages` branch where it will be deployed by GitHub.
-If you would like to deploy the page with your own URL or using something else than GitHub, have a  look at the specific instructions further on.
+If you would like to deploy the page with your own URL or using something else than GitHub, have a look at the specific instructions further on.
 
 **Adjust DeployPage**: start by checking the `.github/workflows/DeployPage.yml` in particular:
 * if you want to use Python or matplotlib, uncomment the relevant lines
@@ -258,7 +258,10 @@ If you would like to deploy the page with your own URL or using something else t
 1. remove both files.
 
 Whenever the `master` branch of your package gets updated, the  build process will be triggered and your page updated.
-**That's it**.
+**That's basically it**.
+
+\alert{In order to avoid having GitHub mark your repo as a CSS/HTML repo instead of a Julia one, you will want to tell it to ignore the `page/` folder (or whatever you named the folder) for the language statistics. To do so, add a file `.gitattributes` in your repo with `page/* linguist-vendored` such as [the one we use](https://github.com/tlienart/PkgPage.jl/blob/master/.gitattributes).
+}
 
 **Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages` as Documenter also generates files in `gh-pages`.
 
