@@ -40,8 +40,7 @@ jobs:
             using Pkg;
             Pkg.add(["NodeJS", "PkgPage", "DataFrames"]);
             using NodeJS;
-            run(`$(npm_cmd()) install highlight.js`);
-            run(`$(npm_cmd()) install purgecss`);
+            run(`$(npm_cmd()) install highlight.js purgecss`);
             import PkgPage;
             PkgPage.optimize(input="page", output="")'
     - name: Build and Deploy
