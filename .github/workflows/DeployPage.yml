@@ -41,8 +41,7 @@ jobs:
             Pkg.add(["NodeJS", "DataFrames"]);
             Pkg.add(PackageSpec(url="https://github.com/tlienart/PkgPage.jl"));
             using NodeJS;
-            run(`$(npm_cmd()) install highlight.js`);
-            run(`$(npm_cmd()) install purgecss`);
+            run(`$(npm_cmd()) install highlight.js purgecss`);
             import PkgPage;
             PkgPage.optimize(input="page", output="")'
     - name: Build and Deploy
