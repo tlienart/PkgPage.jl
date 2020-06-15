@@ -7,6 +7,7 @@
 
 * [**Instructions + Example**](https://tlienart.github.io/PkgPage.jl) (this will also be your starting point)
 * **Authors**: Thibaut Lienart, Zlatan Vasović
+* **Contributors**: Ole Kröger
 
 ## Examples
 
