@@ -61,12 +61,15 @@ The latter allows you to plug in values that you would have defined here.
                         don't pick a value between the two as the exact
                         look is browser dependent). When use_hero = true,
                         hero_margin_top is used instead.
+
   - use_hero:           if false, main bar stretches from left to right
                         otherwise boxed
   - hero_width:         width of the hero, for instance 80% will mean the
                         hero will stretch over 80% of the width of the page.
   - hero_margin_top     used instead of header_margin_top if use_hero is true
-  - add_github_button:  whether to add a "Star this package" button in header
+
+  - add_github_view:    whether to add a "View on GitHub" button in header
+  - add_github_star:    whether to add a "Star this package" button in header
   - github_repo:        path to the GitHub repo for the GitHub button
 -->
 @def use_header_img     = true
@@ -80,8 +83,9 @@ The latter allows you to plug in values that you would have defined here.
 @def hero_width         = "80%"
 @def hero_margin_top    = "100px"
 
-@def add_github_button  = true
-@def github_repo        = "tlienart/PkgPage.jl"
+@def add_github_view  = true
+@def add_github_star  = true
+@def github_repo      = "tlienart/PkgPage.jl"
 
 <!-- SECTION LAYOUT
 NOTE:
