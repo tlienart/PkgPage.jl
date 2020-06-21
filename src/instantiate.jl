@@ -22,6 +22,7 @@ function newpage(; path="page", overwrite=false)
     store = joinpath(dirname(dirname(pathof(PkgPage))), "page")
     for obj in readdir(store)
         obj == "DeployPage.yml" && continue
+        obj == ".gitattributes" && continue
         src = joinpath(store, obj)
         dst = joinpath(path, obj)
         cp(src, dst)
@@ -40,6 +41,14 @@ function newpage(; path="page", overwrite=false)
     dst = joinpath(gapath, name)
     cp(src, dst, force=overwrite)
     chmod(dst, 0o644)
+
+    # Try placing the `.gitattributes`
+    name = ".gitattributes"
+    src = joinpath(store, name)
+    dst = name
+    cp(src, dst, force=overwrite)
+    chmod(dst, 0o644)
+
     return nothing
 end
 
