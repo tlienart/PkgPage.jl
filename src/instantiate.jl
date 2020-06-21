@@ -63,9 +63,15 @@ function clever_cd(path)
     return (bkpath, outside)
 end
 
-# Piracy to avoid code caching and reduce risks of silly
-# errors and hard-to-understand error messages.
+
+"""
+    serve(path="page")
+
+Launch the server to render the content of the `path` folder.
+"""
 function serve(path="page"; kw...)
+    # Piracy to avoid code caching and reduce risks of silly
+    # errors and hard-to-understand error messages.
     bkpath, outside = clever_cd(path)
     try
         F.serve(clear=true; kw...)

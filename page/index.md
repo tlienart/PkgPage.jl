@@ -257,7 +257,23 @@ If you would like to deploy the page with your own URL or using something else t
 1. copy the entire content of the generated `franklin.pub` file and put it as a new deploy key named `FRANKLIN_PUB` on <https://github.com/USERNAME/PACKAGE.jl/settings/keys> with `read/write` access,
 1. remove both files.
 
-Whenever the `master` branch of your package gets updated, the  build process will be triggered and your page updated.
+**GitIgnore**: it's important you specify that `page/__site` should be ignored by git and not pushed to your repository otherwise the build process might not work properly. To do so create a file `.gitignore` containing the line
+
+```
+page/__site
+```
+
+as shown [here](https://github.com/tlienart/PkgPage.jl/blob/cce098535eb95c2c3ba919d605792abfee57710c/.gitignore#L3).
+
+**GitAttributes**: in order for GitHub to ignore `page` folder it the language statistics for your repository, make sure to add a file `.gitattributes` with content
+
+```
+page/* linguist-vendored
+```
+
+like [this](https://github.com/tlienart/PkgPage.jl/blob/master/.gitattributes).
+
+Now if you push your changes and, generally, whenever the `master` branch of your package gets updated, the  build process will be triggered and your page updated and deployed.
 **That's it**.
 
 **Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages` as Documenter also generates files in `gh-pages`.
