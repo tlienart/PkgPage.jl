@@ -241,7 +241,7 @@ You can control the indentation and appearance of the output block in the `confi
 \lead{Make your page available online easily by leveraging GitHub Actions and GitHub Pages.}
 
 By following these instructions, the content of the rendered website will be copied to a `gh-pages` branch where it will be deployed by GitHub.
-If you would like to deploy the page with your own URL or using something else than GitHub, have a  look at the specific instructions further on.
+If you would like to deploy the page with your own URL or using something else than GitHub, have a look at the specific instructions further on.
 
 **Adjust DeployPage**: start by checking the `.github/workflows/DeployPage.yml` in particular:
 * if you want to use Python or matplotlib, uncomment the relevant lines
