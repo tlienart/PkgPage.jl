@@ -389,9 +389,13 @@ first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plai
 <li><p>remove both files.</p>
 </li>
 </ol>
-<p>Whenever the <code>master</code> branch of your package gets updated, the  build process will be triggered and your page updated. <strong>That&#39;s basically it</strong>.</p>
-<div class="alert alert-info" role="alert">
- In order to avoid having GitHub mark your repo as a CSS/HTML repo instead of a Julia one, you will want to tell it to ignore the <code>page/</code> folder &#40;or whatever you named the folder&#41; for the language statistics. To do so, add a file <code>.gitattributes</code> in your repo with <code>page/* linguist-vendored</code> such as <a href="https://github.com/tlienart/PkgPage.jl/blob/master/.gitattributes">the one we use</a>. </div>
+<p><strong>GitIgnore</strong>: it&#39;s important you specify that <code>page/__site</code> should be ignored by git and not pushed to your repository otherwise the build process might not work properly. To do so create a file <code>.gitignore</code> containing the line</p>
+<pre><code class="julia hljs">page/__site</code></pre>
+<p>as shown <a href="https://github.com/tlienart/PkgPage.jl/blob/cce098535eb95c2c3ba919d605792abfee57710c/.gitignore#L3">here</a>.</p>
+<p><strong>GitAttributes</strong>: in order for GitHub to ignore <code>page</code> folder it the language statistics for your repository, make sure to add a file <code>.gitattributes</code> with content</p>
+<pre><code class="julia hljs">page/* linguist-vendored</code></pre>
+<p>like <a href="https://github.com/tlienart/PkgPage.jl/blob/master/.gitattributes">this</a>.</p>
+<p>Now if you push your changes and, generally, whenever the <code>master</code> branch of your package gets updated, the  build process will be triggered and your page updated and deployed. <strong>That&#39;s it</strong>.</p>
 <p><strong>Avoiding clashes with Documenter.jl</strong>: if you already use <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> you might want your page to be deployed in a specific folder of <code>gh-pages</code> as Documenter also generates files in <code>gh-pages</code>.</p>
 <div class="alert alert-info" role="alert">
  This will typically not be necessary as the names created by PkgPage and Documenter don&#39;t clash, but you might still prefer to avoid mixing the two &#40;in which case, read on&#41;. </div>
@@ -423,7 +427,7 @@ run(<span class="hljs-string">`<span class="hljs-subst">$(npm_cmd()</span>) inst
 </section>
 <footer class="py-5 bg-dark">
   <div class="container">
-    <p class="m-0 text-center text-white">&copy; Thibaut Lienart and Zlatan Vasović. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and <a href="https://github.com/tlienart/PkgPage.jl">PkgPage.jl</a>.</p>
+    <p class="m-0 text-center text-white">&copy; Thibaut Lienart and Zlatan Vasović. Website powered by <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>, <a href="https://github.com/tlienart/PkgPage.jl">PkgPage.jl</a> and the <a href="https://julialang.org">Julia</a> programming language.</p>
   </div>
 </footer>
 </div><!-- CONTENT ENDS HERE -->
