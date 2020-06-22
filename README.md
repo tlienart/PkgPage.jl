@@ -9,6 +9,8 @@
 * **Authors**: Thibaut Lienart, Zlatan Vasović
 * **Contributors**: Ole Kröger
 
+If that's your thing, here's a [screencast](https://www.youtube.com/watch?v=6kARuINUAMs) showing how to use PkgPage to create a landing page (ironically it's 20 minutes long but you can definitely skip a few parts)
+
 ## Examples
 
 - [PkgPage.jl webpage](https://tlienart.github.io/PkgPage.jl)
