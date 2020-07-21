@@ -1,4 +1,4 @@
-3×2 DataFrames.DataFrame
+3×2 DataFrame
 │ Row │ A     │ B      │
 │     │ Int64 │ String │
 ├─────┼───────┼────────┤
