@@ -14,6 +14,7 @@ If that's your thing, here's a [screencast](https://www.youtube.com/watch?v=6kAR
 ## Examples
 
 - [PkgPage.jl webpage](https://tlienart.github.io/PkgPage.jl)
+- [JuliaActuary](https://juliaactuary.org/)
 
 ## License
 
