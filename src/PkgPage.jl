@@ -4,7 +4,6 @@ import Franklin
 import CommonMark
 import NodeJS
 using Pkg: TOML
-using LibGit2: LibGit2, GitRemote, GitRepo
 
 export newpage
 export serve
