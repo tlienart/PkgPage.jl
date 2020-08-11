@@ -14,7 +14,6 @@ If that's your thing, here's a [screencast](https://www.youtube.com/watch?v=6kAR
 ## Examples
 
 - [PkgPage.jl](https://tlienart.github.io/PkgPage.jl)
-- [JuliaActuary](https://juliaactuary.org/)
 - [Comonicon.jl](https://rogerluo.me/Comonicon.jl/)
 
 ## License
