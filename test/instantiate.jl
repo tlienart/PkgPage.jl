@@ -30,6 +30,8 @@
     end
 
     @testset "optimize" begin
+        using NodeJS
+        run(`$(npm_cmd()) install highlight.js purgecss`)
         PkgPage.optimize(; input="foo", output="bar", purge=true,
                            prerender=false)
         @test readdir(joinpath("foo", "__site")) == ["bar"]
