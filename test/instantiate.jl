@@ -3,6 +3,7 @@
 
     @testset "newpage" begin
         mkdir("foo")
+        @test_throws ExceptionError newpage(path="foo", overwrite=false)
         newpage(path="foo", overwrite=true)
         @test isdir("foo")
         @test isdir(joinpath("foo", "_layout"))
