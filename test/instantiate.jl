@@ -30,7 +30,7 @@
         @test endswith(pwd(), sandbox)
     end
 
-    if get(ENV, "CI", false)
+    if get(ENV, "CI", "false") == "true"
         @testset "optimize" begin
             PkgPage.optimize(; input="foo", output="bar", purge=true,
                                prerender=false)
