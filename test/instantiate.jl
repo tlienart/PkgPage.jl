@@ -30,14 +30,14 @@
         @test endswith(pwd(), sandbox)
     end
 
-    @testset "optimize" begin
-        using NodeJS
-        run(`$(npm_cmd()) install highlight.js purgecss`)
-        PkgPage.optimize(; input="foo", output="bar", purge=true,
-                           prerender=false)
-        @test readdir(joinpath("foo", "__site")) == ["bar"]
-        @test isfile(joinpath("foo", "__site", "bar", "index.html"))
-        @test isfile(joinpath("foo", "__site", "bar", "css", "bootstrap.min.css"))
+    if get(ENV, "CI", false)
+        @testset "optimize" begin
+            PkgPage.optimize(; input="foo", output="bar", purge=true,
+                               prerender=false)
+            @test readdir(joinpath("foo", "__site")) == ["bar"]
+            @test isfile(joinpath("foo", "__site", "bar", "index.html"))
+            @test isfile(joinpath("foo", "__site", "bar", "css", "bootstrap.min.css"))
+        end
     end
     cd(bk)
     Pkg.activate()
