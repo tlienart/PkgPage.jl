@@ -2,6 +2,8 @@
     sandbox = mktempdir(); bk = pwd(); cd(sandbox)
 
     @testset "newpage" begin
+        mkdir("foo")
+        @test_throws ErrorException newpage(path="foo", overwrite=false)
         newpage(path="foo", overwrite=true)
         @test isdir("foo")
         @test isdir(joinpath("foo", "_layout"))
@@ -28,11 +30,15 @@
         @test endswith(pwd(), sandbox)
     end
 
-    @testset "optimize" begin
-        PkgPage.optimize(; input="foo", output="bar", purge=false,
-                           prerender=false)
-        @test readdir(joinpath("foo", "__site")) == ["bar"]
-        @test isfile(joinpath("foo", "__site", "bar", "index.html"))
+    if get(ENV, "CI", "false") == "true"
+        run(`$(npm_cmd()) install highlight.js purgecss`)
+        @testset "optimize" begin
+            PkgPage.optimize(; input="foo", output="bar", purge=true,
+                               prerender=false)
+            @test readdir(joinpath("foo", "__site")) == ["bar"]
+            @test isfile(joinpath("foo", "__site", "bar", "index.html"))
+            @test isfile(joinpath("foo", "__site", "bar", "css", "bootstrap.min.css"))
+        end
     end
     cd(bk)
     Pkg.activate()
