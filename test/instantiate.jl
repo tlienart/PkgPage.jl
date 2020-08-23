@@ -31,6 +31,7 @@
     end
 
     if get(ENV, "CI", "false") == "true"
+        run(`$(npm_cmd()) install highlight.js purgecss`)
         @testset "optimize" begin
             PkgPage.optimize(; input="foo", output="bar", purge=true,
                                prerender=false)
