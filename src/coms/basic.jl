@@ -3,7 +3,7 @@
 
 A simple lead class.
 """
-lx_lead(com, _) = "@@lead $(proc(com)) @@"
+lx_lead(com, _) = "@@lead $(lxproc(com)) @@"
 
 """
     \\figure{path=..., alt=..., width=..., ...}
@@ -11,7 +11,7 @@ lx_lead(com, _) = "@@lead $(proc(com)) @@"
 Insert a figure with specifications.
 """
 function lx_figure(com, _)
-    content = strip(proc(com))
+    content = strip(lxproc(com))
     _, kwargs = lxargs(content, "figure")
     return _figure(; kwargs...)
 end
@@ -40,7 +40,7 @@ end
 Insert a table with specifications.
 """
 function lx_table(com, _)
-    content = strip(proc(com))
+    content = strip(lxproc(com))
     args, kwargs = lxargs(content, "table")
     length(args) == 1 ||
         error("Expected a single un-named argument for `\\table`.")
@@ -57,7 +57,7 @@ function _table(md; style="", caption="", class="")
 end
 
 function lx_alert(com, _)
-    content = strip(proc(com))
+    content = strip(lxproc(com))
     return html("""
         <div class="alert alert-info" role="alert">
         """) * content * html("</div>")
