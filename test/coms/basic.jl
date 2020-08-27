@@ -1,15 +1,15 @@
 @testset "lx_lead" begin
-    c = lxc(raw"""\lead{Hello goodbye baz}""")
+    c = lxmock(raw"""\lead{Hello goodbye baz}""")
     @test lx_lead(c,0) == "@@lead Hello goodbye baz @@"
 end
 
 @testset "lx_figure" begin
-    c = lxc(raw"""\figure{path="/assets/img.png"}""")
+    c = lxmock(raw"""\figure{path="/assets/img.png"}""")
     @test isapproxstr(lx_figure(c,0), """~~~
         <figure class="figure">
           <img src=\"/assets/img.png\" alt=\"\" class=\"figure-img img-fluid \" width=\"\" >
         </figure>~~~""")
-    c = lxc(raw"""\figure{path="/assets/img.png",width="100%",caption="foo"}""")
+    c = lxmock(raw"""\figure{path="/assets/img.png",width="100%",caption="foo"}""")
     @test isapproxstr(lx_figure(c,0), """~~~
         <figure class="figure">
           <img src=\"/assets/img.png\" alt=\"foo\" class=\"figure-img img-fluid \" width=\"100%\" >
@@ -18,7 +18,7 @@ end
 end
 
 @testset "lx_alert" begin
-    c = lxc("""\\alert{foo **bar** baz}""")
+    c = lxmock("""\\alert{foo **bar** baz}""")
     @test isapproxstr(lx_alert(c,0), """~~~
         <div class="alert alert-info" role="alert">
           ~~~
@@ -28,7 +28,7 @@ end
 end
 
 @testset "lx_table" begin
-    c = lxc("""\\table{\"\"\"
+    c = lxmock("""\\table{\"\"\"
         | A   | B   |
         | --- | --- |
         | 0   | 1   |
