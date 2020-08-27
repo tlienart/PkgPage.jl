@@ -4,6 +4,8 @@
 end
 
 @testset "section" begin
+    F.LOCAL_VARS["sections"] = Pair{String,String}[] => (Pair{String,String},)
+    F.GLOBAL_VARS["section_counter"] = 1 => (Int,)
     counter = F.globvar("section_counter")
     c = lxmock(raw"""\begin{:section, title="aaa"}""")
     h = lx_begin(c,0)
