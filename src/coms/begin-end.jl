@@ -3,7 +3,7 @@ const SUPPORTED_ENVS = (:section, :columns)
 # NOTE: \begin{section} or \begin{:section} considered equiv.
 
 function lx_begin(com, _)
-    content = strip(proc(com))
+    content = strip(lxproc(com))
     args, kwargs = lxargs(content, "begin")
     length(args) == 1 ||
         error("Expected a single argument such as `:section`.")
@@ -17,7 +17,7 @@ function lx_begin(com, _)
 end
 
 function lx_end(com, _)
-    env = Symbol(strip(strip(proc(com)), ':'))
+    env = Symbol(strip(strip(lxproc(com)), ':'))
     env in SUPPORTED_ENVS ||
         error("Unknown environment: $env.")
     closer = Symbol("_end_$env")
@@ -38,7 +38,7 @@ _end_columns() = html("""
     </div>
     """)
 
-lx_column(com, _) = "@@col $(proc(com)) @@"
+lx_column(com, _) = "@@col $(lxproc(com)) @@"
 
 #
 # SECTION

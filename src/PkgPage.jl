@@ -4,6 +4,7 @@ import Franklin
 import CommonMark
 import NodeJS
 using Pkg: TOML
+using FranklinUtils
 
 export newpage
 export serve
@@ -17,7 +18,6 @@ const F = Franklin
 
 include("instantiate.jl")
 
-include("utils.jl")
 include("coms/basic.jl")
 include("coms/begin-end.jl")
 

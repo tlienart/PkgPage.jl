@@ -1,11 +1,13 @@
 @testset "invalid" begin
-    c = lxc(raw"""\begin{:sectiom}""")
+    c = lxmock(raw"""\begin{:sectiom}""")
     @test_throws ErrorException lx_begin(c,0)
 end
 
 @testset "section" begin
+    F.LOCAL_VARS["sections"] = Pair{String,String}[] => (Pair{String,String},)
+    F.GLOBAL_VARS["section_counter"] = 1 => (Int,)
     counter = F.globvar("section_counter")
-    c = lxc(raw"""\begin{:section, title="aaa"}""")
+    c = lxmock(raw"""\begin{:section, title="aaa"}""")
     h = lx_begin(c,0)
     @test F.globvar("section_counter") == counter + 1
     @test isapproxstr(strip(h), """
@@ -17,7 +19,7 @@ end
                   aaa
                 </h2>
         ~~~""")
-    c = lxc(raw"""\end{:section}""")
+    c = lxmock(raw"""\end{:section}""")
     h = lx_end(c,0)
     @test isapproxstr(h, """~~~
                 </div>
@@ -28,13 +30,13 @@ end
 end
 
 @testset "columns" begin
-    c = lxc(raw"""\begin{:columns}""")
+    c = lxmock(raw"""\begin{:columns}""")
     h = lx_begin(c,0)
     @test isapproxstr(h, """~~~
         <div class=\"container\">
           <div class=\"row\">
         ~~~""")
-    c = lxc(raw"""\end{:columns}""")
+    c = lxmock(raw"""\end{:columns}""")
     h = lx_end(c,0)
     @test isapproxstr(h, """~~~
         </div></div>
