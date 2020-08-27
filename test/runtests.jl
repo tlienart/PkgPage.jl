@@ -6,8 +6,6 @@ using NodeJS
 const P = PkgPage
 const F = Franklin
 
-include("testutils.jl")
-
 include("coms/basic.jl")
 include("coms/begin-end.jl")
 include("instantiate.jl")
