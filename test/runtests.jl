@@ -2,6 +2,7 @@ using PkgPage
 using Pkg
 using Test
 import Franklin
+using FranklinUtils
 using NodeJS
 const P = PkgPage
 const F = Franklin
