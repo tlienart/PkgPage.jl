@@ -108,11 +108,7 @@ function optimize(; input="page", output="", purge=true, kw...)
         io = IOBuffer()
         run(pipeline(`$(NodeJS.npm_cmd()) root`, stdout=io))
         nodepath = String(take!(io))
-        ext = ""
-        if isfile(joinpath(nodepath, "purgecss", "bin", "purgecss.js"))
-            ext = ".js"
-        end
-        run(`$(strip(nodepath))/purgecss/bin/purgecss$ext --css __site/css/bootstrap.min.css --content __site/index.html --output __site/css/bootstrap.min.css`)
+        run(`$(strip(nodepath))/purgecss/bin/purgecss.js --css __site/css/bootstrap.min.css --content __site/index.html --output __site/css/bootstrap.min.css`)
     end
 
     # if required, copy the content of `__site` to a subfolder so that
