@@ -1,7 +1,7 @@
 name = "PkgPage"
 uuid = "e7214860-93a8-4f22-b43d-bd447d1a2094"
 authors = ["Thibaut Lienart, Zlatan Vasović"]
-version = "0.3.2"
+version = "0.3.3"
 
 [deps]
 CommonMark = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
@@ -19,7 +19,8 @@ julia = "1.3"
 
 [extras]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["Test", "DataFrames"]
+test = ["Test", "Dates", "DataFrames"]
