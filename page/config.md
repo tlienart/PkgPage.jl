@@ -49,6 +49,7 @@ The latter allows you to plug in values that you would have defined here.
 
 <!-- HEADER SPECS
   NOTE:
+  - use_header:         if false, toggle the header off completely
   - use_header_img:     to use an image as background for the header
   - header_img_path:    either a path to an asset or a SVG like here. Note that
                         the path must be CSS-compatible.
@@ -72,6 +73,7 @@ The latter allows you to plug in values that you would have defined here.
   - add_github_star:    whether to add a "Star this package" button in header
   - github_repo:        path to the GitHub repo for the GitHub button
 -->
+@def use_header         = true
 @def use_header_img     = true
 @def header_img_path    = "url(\"assets/diagonal-lines.svg\")"
 @def header_img_style   = """
