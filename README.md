@@ -15,6 +15,7 @@ If that's your thing, here's a [screencast](https://www.youtube.com/watch?v=6kAR
 
 - [PkgPage.jl](https://tlienart.github.io/PkgPage.jl)
 - [Comonicon.jl](https://rogerluo.me/Comonicon.jl/)
+- [LazilyInitializedFields.jl](https://kristofferc.github.io/LazilyInitializedFields.jl/)
 
 ## License
 
