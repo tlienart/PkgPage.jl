@@ -7,6 +7,10 @@ using NodeJS
 const P = PkgPage
 const F = Franklin
 
-include("coms/basic.jl")
-include("coms/begin-end.jl")
+F.newmodule("Utils")
+Base.eval(Main.Utils, quote using PkgPage end)
+
+include("latex/basic.jl")
+include("latex/environments.jl")
+
 include("instantiate.jl")
