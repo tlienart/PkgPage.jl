@@ -2,7 +2,7 @@
      ABOUT
     ============================== -->
 
-\begin{:section, title="About this Package", name="About"}
+\begin{section}{title="About this Package", name="About"}
 
 \lead{PkgPage.jl is based upon [Franklin.jl](https://github.com/tlienart/Franklin.jl) and makes it easy to create a beautiful landing page for a package in less than 10 minutes.}
 
@@ -19,12 +19,14 @@ With it you can:
     * support for [KaTeX](https://github.com/KaTeX/KaTeX) and [highlight.js](https://highlightjs.org/) and automatic pre-rendering,
     * and [much more](https://franklinjl.org/).
 
-\end{:section}
+\end{section}
 
-<!-- =============================
+
+<!-- ==============================
      GETTING STARTED
      ============================== -->
-\begin{:section, title="Getting started"}
+\begin{section}{title="Getting started"}
+
 
 In order to get started, just add the package (with **Julia ≥ 1.3**) and
 
@@ -46,12 +48,14 @@ The `serve` call will render your page and make it available for live-preview in
 
 \alert{You can specify another folder name via `newpage(path="page2")` but don't forget to modify this in the `DeployPage.yml` as well (in 2 spots).}
 
-\end{:section}
+\end{section}
 
-<!-- =============================
+
+
+<!-- ==============================
      SPECIAL COMMANDS
      ============================== -->
-\begin{:section, title="Commands"}
+\begin{section}{title="Commands"}
 
 \lead{PkgPage makes a few special commands available to you to simplify the insertion of common useful environments.
 }
@@ -67,9 +71,9 @@ The `serve` call will render your page and make it available for live-preview in
 **Sections**: you can indicate a section as follows:
 
 ```plaintext
-\begin{:section, opts...}
+\begin{section}{opts...}
 text
-\end{:section}
+\end{section}
 ```
 
 where the available options are:
@@ -91,20 +95,20 @@ where `path` is a valid path to the image (e.g. `/assets/image.png`) and the oth
 * `caption="..."` to specify the figure caption if any,
 * `style="..."` to add any specific CSS styling to the image (e.g. `border-radius:5px`).
 
-\center{
+\begin{center}
   \figure{path="/assets/nice_image.jpg", width="100%", style="border-radius:5px;", caption="Panoramic view of the Tara Cathedrals (taken from Wikimedia)."}
-}
+\end{center}
 
 \label{com-tables}
 **Tables**: you can insert a table as follows:
 
 ```plaintext
-\table{"""
+\begin{table}{opts...}
 | Column One | Column Two | Column Three |
 |----------: | ---------- |:------------:|
 | Row `1`    | Column `2` |              |
 | *Row* 2    | **Row** 2  | Column ``3`` |
-""", opts...}
+\end{table}
 ```
 
 where the available options are:
@@ -113,43 +117,43 @@ where the available options are:
 * `class="..."`: to add specific bootstrap classes to the table (e.g. `table-striped`),
 * `style="..."`: for any further styling.
 
-\center{
-    \table{"""
-    | Column One | Column Two | Column Three |
-    |:---------- | ---------- |:------------:|
-    | Row `1`    | Column `2` |              |
-    | *Row* 2    | **Row** 2  | Column ``3`` |
-    """, caption="A simple table", class="table-striped"}
-}
+\begin{center}
+\begin{table}{caption="A simple table", class="table-striped"}
+| Column One | Column Two | Column Three |
+|:---------- | ---------- |:------------:|
+| Row `1`    | Column `2` |              |
+| *Row* 2    | **Row** 2  | Column ``3`` |
+\end{table}
+\end{center}
 
 \label{com-columns}
 **Columns**: you can declare an environment with columns with:
 
 ```plaintext
-\begin{:columns}
-\column{
+\begin{columns}
+\begin{column}{}
 ...
-}
-\column{
+\end{column}
+\begin{column}{}
 ...
-}
-\end{:columns}
+\end{column}
+\end{columns}
 ```
 
 For instance you can use this to produce:
 
-\begin{:columns}
-\column{
+\begin{columns}
+\begin{column}{}
 **_Content of a first column here_**
 
 Here is some more content for that first column.
-}
-\column{
+\end{column}
+\begin{column}{}
 **_Content of a second column here_**
 
 Here is some more content for that second column.
-}
-\end{:columns}
+\end{column}
+\end{columns}
 
 \\
 
@@ -167,11 +171,11 @@ where $P_n$ is the $n$-th [Legendre polynomial](https://en.wikipedia.org/wiki/Le
 
 * you can use `\\` to add some vertical space (skip a line)
 \\
-* you can use `\center{...}` to center some content
-\center{
+* you can use `\begin{center}...\end{center}` to center some content
+\begin{center}
 _some centered content_
 \\\\
-}
+\end{center}
 * you can use `\style{css}{content}` to get css-styled text for instance `\style{color:red;text-transform:uppercase;}{hello}` gives \style{color:red;text-transform:uppercase;}{hello}
 * you can use `\alert{...}` to draw attention to some text via a coloured box.
 
@@ -179,14 +183,14 @@ _some centered content_
 
 You can also define your own commands which can be as complex as you might want, see the [Franklin docs](https://franklinjl.org) for more information.
 
-\end{:section}
+\end{section}
 
 
 <!-- =============================
      SHOWING CODE
     ============================== -->
 
-\begin{:section, title="Showing Code"}
+\begin{section}{title="Showing Code"}
 
 \lead{
     Franklin can run your Julia code on the fly and show the output.
@@ -229,14 +233,14 @@ first(df, 3)
 
 You can control the indentation and appearance of the output block in the `config.md` too.
 
-\end{:section}
+\end{section}
 
 
 <!-- =============================
      Deploying
     ============================== -->
 
-\begin{:section, title="Deployment"}
+\begin{section}{title="Deployment"}
 
 \lead{Make your page available online easily by leveraging GitHub Actions and GitHub Pages.}
 
@@ -249,13 +253,6 @@ If you would like to deploy the page with your own URL or using something else t
     * `NodeJS` and `PkgPage` are added,
     * any packages that your page might rely on are added,
     * the `optimize` call has the appropriate `input` and `output` path (if you're in the default setting, leave as is).
-
-**Keys**: in order to have your page be built and deployed on GitHub, you will need to generate a keypair and add it to the GitHub repo. To do so:
-
-1. run in your terminal `ssh-keygen -N "" -f franklin`,
-1. copy the entire content of the generated `franklin` file and put it as a new secret named `FRANKLIN_PRIV` on <https://github.com/USERNAME/PACKAGE.jl/settings/secrets/new>,
-1. copy the entire content of the generated `franklin.pub` file and put it as a new deploy key named `FRANKLIN_PUB` on <https://github.com/USERNAME/PACKAGE.jl/settings/keys> with `read/write` access,
-1. remove both files.
 
 **GitIgnore**: it's important you specify that `page/__site` should be ignored by git and not pushed to your repository otherwise the build process might not work properly. To do so create a file `.gitignore` containing the line
 
@@ -273,7 +270,7 @@ page/* linguist-vendored
 
 like [this](https://github.com/tlienart/PkgPage.jl/blob/master/.gitattributes).
 
-Now if you push your changes and, generally, whenever the `master` branch of your package gets updated, the  build process will be triggered and your page updated and deployed.
+Now whenever you push changes to the `master` branch of your package, the  build process will be triggered and your page updated and deployed.
 **That's it**.
 
 **Avoiding clashes with Documenter.jl**: if you already use [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) you might want your page to be deployed in a specific folder of `gh-pages` as Documenter also generates files in `gh-pages`.
@@ -300,4 +297,4 @@ run(`$(npm_cmd()) install purgecss`);
 * run `PkgPage.optimize(input="page", output="")` (adapting `input` as required)
 * place the content of `page/__site` wherever your server requires it.
 
-\end{:section}
+\end{section}
