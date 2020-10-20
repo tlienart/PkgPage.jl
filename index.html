@@ -128,10 +128,7 @@ than 10 minutes.
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>
-          About this Package
-        </h2>
-
+        <h2>About this Package</h2></p>
 <div class="lead">PkgPage.jl is based upon <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and makes it easy to create a beautiful landing page for a package in less than 10 minutes.</div>
 <p>PkgPage uses <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/">Bootstrap 4.5</a> and is meant to be particularly easy to use with minimal need to tweak HTML or CSS to get a great-looking result. With it you can:</p>
 <ul>
@@ -156,19 +153,15 @@ than 10 minutes.
 </ul>
 </li>
 </ul>
-      </div>
+<p>      </div>
     </div>
   </div>
 </section>
-
 <section id="getting_started" class="scrollspy section-bg-color">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>
-          Getting started
-        </h2>
-
+        <h2>Getting started</h2></p>
 <p>In order to get started, just add the package &#40;with <strong>Julia ≥ 1.3</strong>&#41; and</p>
 <pre><code class="julia-repl hljs"><span class="hljs-meta">julia&gt;</span><span class="julia"> <span class="hljs-keyword">using</span> PkgPage
 </span><span class="hljs-meta">julia&gt;</span><span class="julia"> newpage()
@@ -189,20 +182,16 @@ than 10 minutes.
 </ul>
 <p>The <code>serve</code> call will render your page and make it available for live-preview in your browser when you make modifications to either <code>config.md</code> or <code>index.md</code>.</p>
 <div class="alert alert-info" role="alert">
- You can specify another folder name via <code>newpage&#40;path&#61;&quot;page2&quot;&#41;</code> but don&#39;t forget to modify this in the <code>DeployPage.yml</code> as well &#40;in 2 spots&#41;. </div>
-      </div>
+You can specify another folder name via <code>newpage&#40;path&#61;&quot;page2&quot;&#41;</code> but don&#39;t forget to modify this in the <code>DeployPage.yml</code> as well &#40;in 2 spots&#41;.</div>
+<p>      </div>
     </div>
   </div>
 </section>
-
 <section id="commands" class="scrollspy">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>
-          Commands
-        </h2>
-
+        <h2>Commands</h2></p>
 <div class="lead">PkgPage makes a few special commands available to you to simplify the insertion of common useful environments.</div>
 <ul>
 <li><p><a href="#com-sections">Sections</a></p>
@@ -219,9 +208,9 @@ than 10 minutes.
 </li>
 </ul>
 <p><a id="com-sections" class="anchor"></a> <strong>Sections</strong>: you can indicate a section as follows:</p>
-<pre><code class="plaintext hljs">\begin{:section, opts...}
+<pre><code class="plaintext hljs">\begin{section}{opts...}
 text
-\end{:section}</code></pre>
+\end{section}</code></pre>
 <p>where the available options are:</p>
 <ul>
 <li><p><code>title&#61;&quot;...&quot;</code> to add a heading to the section, this should be provided,</p>
@@ -244,21 +233,21 @@ text
 <li><p><code>style&#61;&quot;...&quot;</code> to add any specific CSS styling to the image &#40;e.g. <code>border-radius:5px</code>&#41;.</p>
 </li>
 </ul>
-<div style="text-align:center;"> <figure class="figure">
+ <div style="text-align:center;"> <figure class="figure">
   <img src="/PkgPage.jl/assets/nice_image.jpg" alt="Panoramic view of the Tara Cathedrals (taken from Wikimedia)." class="figure-img img-fluid " width="100%" style="border-radius:5px;">
   <figcaption class="figure-caption ">
 Panoramic view of the Tara Cathedrals (taken from Wikimedia).
 </figcaption>
 
 </figure>
-</div>
+  </div>
 <p><a id="com-tables" class="anchor"></a> <strong>Tables</strong>: you can insert a table as follows:</p>
-<pre><code class="plaintext hljs">\table{&quot;&quot;&quot;
+<pre><code class="plaintext hljs">\begin{table}{opts...}
 | Column One | Column Two | Column Three |
 |----------: | ---------- |:------------:|
 | Row `1`    | Column `2` |              |
 | *Row* 2    | **Row** 2  | Column ``3`` |
-&quot;&quot;&quot;, opts...}</code></pre>
+\end{table}</code></pre>
 <p>where the available options are:</p>
 <ul>
 <li><p><code>caption&#61;&quot;...&quot;</code>: to add a caption to the table,</p>
@@ -268,24 +257,20 @@ Panoramic view of the Tara Cathedrals (taken from Wikimedia).
 <li><p><code>style&#61;&quot;...&quot;</code>: for any further styling.</p>
 </li>
 </ul>
-<div style="text-align:center;"> <table class="table table-striped"><caption>A simple table</caption> <thead><tr><th align="left">Column One</th><th align="left">Column Two</th><th align="center">Column Three</th></tr></thead><tbody><tr><td align="left">Row <code>1</code></td><td align="left">Column <code>2</code></td><td align="center"></td></tr><tr><td align="left"><em>Row</em> 2</td><td align="left"><strong>Row</strong> 2</td><td align="center">Column <code>3</code></td></tr></tbody></table></div>
+ <div style="text-align:center;"> <table class="table table-striped"><caption>A simple table</caption> <thead><tr><th align="left">Column One</th><th align="left">Column Two</th><th align="center">Column Three</th></tr></thead><tbody><tr><td align="left">Row <code>1</code></td><td align="left">Column <code>2</code></td><td align="center"></td></tr><tr><td align="left"><em>Row</em> 2</td><td align="left"><strong>Row</strong> 2</td><td align="center">Column <code>3</code></td></tr></tbody></table>  </div>
 <p><a id="com-columns" class="anchor"></a> <strong>Columns</strong>: you can declare an environment with columns with:</p>
-<pre><code class="plaintext hljs">\begin{:columns}
-\column{
+<pre><code class="plaintext hljs">\begin{columns}
+\begin{column}{}
 ...
-}
-\column{
+\end{column}
+\begin{column}{}
 ...
-}
-\end{:columns}</code></pre>
+\end{column}
+\end{columns}</code></pre>
 <p>For instance you can use this to produce:</p>
-<p><div class="container">
-  <div class="row">
- <div class="col"><p><strong><em>Content of a first column here</em></strong></p>
-<p>Here is some more content for that first column.</p></div> <div class="col"><p><strong><em>Content of a second column here</em></strong></p>
-<p>Here is some more content for that second column.</p></div>   </div>
-</div>
-</p>
+ <div class="container"><div class="row"> <div class="col "> <strong><em>Content of a first column here</em></strong></p>
+<p>Here is some more content for that first column. </div> <div class="col "> <strong><em>Content of a second column here</em></strong></p>
+<p>Here is some more content for that second column. </div>  </div></div>
 <br/>
 <p><a id="com-maths" class="anchor"></a> <strong>Maths</strong></p>
 <p>Just use <code>&#36;&#36; ... &#36;&#36;</code> for display math and <code>&#36; ... &#36;</code> for inline maths:</p>
@@ -298,10 +283,10 @@ Panoramic view of the Tara Cathedrals (taken from Wikimedia).
 </ul>
 <br/>
 <ul>
-<li><p>you can use <code>\center&#123;...&#125;</code> to center some content</p>
+<li><p>you can use <code>\begin&#123;center&#125;...\end&#123;center&#125;</code> to center some content</p>
 </li>
 </ul>
-<div style="text-align:center;"><em>some centered content</em> <br/><br/></div>
+ <div style="text-align:center;"> <em>some centered content</em> <br/><br/>  </div>
 <ul>
 <li><p>you can use <code>\style&#123;css&#125;&#123;content&#125;</code> to get css-styled text for instance <code>\style&#123;color:red;text-transform:uppercase;&#125;&#123;hello&#125;</code> gives <span style="color:red;text-transform:uppercase;">hello</span></p>
 </li>
@@ -309,21 +294,17 @@ Panoramic view of the Tara Cathedrals (taken from Wikimedia).
 </li>
 </ul>
 <div class="alert alert-info" role="alert">
- this is an alert </div>
+this is an alert</div>
 <p>You can also define your own commands which can be as complex as you might want, see the <a href="https://franklinjl.org">Franklin docs</a> for more information.</p>
-      </div>
+<p>      </div>
     </div>
   </div>
 </section>
-
 <section id="showing_code" class="scrollspy section-bg-color">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>
-          Showing Code
-        </h2>
-
+        <h2>Showing Code</h2></p>
 <div class="lead">Franklin can run your Julia code on the fly and show the output.</div>
 <p><strong>Setting up the environment</strong>: the first step is to ensure that the folder with your source has the proper environment including your package. To do so, in the Julia REPL, navigate to the source &#40;e.g. <code>cd&#40;&quot;page/&quot;&#41;</code>&#41;, activate the environment &#40;e.g. <code>using Pkg; Pkg.activate&#40;&#41;</code>&#41; and add the package&#40;s&#41; that you need &#40;e.g. <code>Pkg.add&#40;&quot;DataFrames&quot;&#41;</code>&#41;. If you check the status or the Project.toml, you will see that <code>Franklin</code> is already in there on top of whatever packages you might have chosen to add. In our current case:</p>
 <pre><code class="julia hljs">Status <span class="hljs-string">`~/.julia/dev/PkgPage/page/Project.toml`</span>
@@ -348,19 +329,15 @@ first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plai
 │ 2   │ 2     │ F      │
 │ 3   │ 3     │ F      │</code></pre>
 <p>You can control the indentation and appearance of the output block in the <code>config.md</code> too.</p>
-      </div>
+<p>      </div>
     </div>
   </div>
 </section>
-
 <section id="deployment" class="scrollspy">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>
-          Deployment
-        </h2>
-
+        <h2>Deployment</h2></p>
 <div class="lead">Make your page available online easily by leveraging GitHub Actions and GitHub Pages.</div>
 <p>By following these instructions, the content of the rendered website will be copied to a <code>gh-pages</code> branch where it will be deployed by GitHub. If you would like to deploy the page with your own URL or using something else than GitHub, have a look at the specific instructions further on.</p>
 <p><strong>Adjust DeployPage</strong>: start by checking the <code>.github/workflows/DeployPage.yml</code> in particular:</p>
@@ -378,27 +355,16 @@ first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plai
 </ul>
 </li>
 </ul>
-<p><strong>Keys</strong>: in order to have your page be built and deployed on GitHub, you will need to generate a keypair and add it to the GitHub repo. To do so:</p>
-<ol>
-<li><p>run in your terminal <code>ssh-keygen -N &quot;&quot; -f franklin</code>,</p>
-</li>
-<li><p>copy the entire content of the generated <code>franklin</code> file and put it as a new secret named <code>FRANKLIN_PRIV</code> on <a href="https://github.com/USERNAME/PACKAGE.jl/settings/secrets/new">https://github.com/USERNAME/PACKAGE.jl/settings/secrets/new</a>,</p>
-</li>
-<li><p>copy the entire content of the generated <code>franklin.pub</code> file and put it as a new deploy key named <code>FRANKLIN_PUB</code> on <a href="https://github.com/USERNAME/PACKAGE.jl/settings/keys">https://github.com/USERNAME/PACKAGE.jl/settings/keys</a> with <code>read/write</code> access,</p>
-</li>
-<li><p>remove both files.</p>
-</li>
-</ol>
 <p><strong>GitIgnore</strong>: it&#39;s important you specify that <code>page/__site</code> should be ignored by git and not pushed to your repository otherwise the build process might not work properly. To do so create a file <code>.gitignore</code> containing the line</p>
 <pre><code class="julia hljs">page/__site</code></pre>
 <p>as shown <a href="https://github.com/tlienart/PkgPage.jl/blob/cce098535eb95c2c3ba919d605792abfee57710c/.gitignore#L3">here</a>.</p>
 <p><strong>GitAttributes</strong>: in order for GitHub to ignore <code>page</code> folder it the language statistics for your repository, make sure to add a file <code>.gitattributes</code> with content</p>
 <pre><code class="julia hljs">page/* linguist-vendored</code></pre>
 <p>like <a href="https://github.com/tlienart/PkgPage.jl/blob/master/.gitattributes">this</a>.</p>
-<p>Now if you push your changes and, generally, whenever the <code>master</code> branch of your package gets updated, the  build process will be triggered and your page updated and deployed. <strong>That&#39;s it</strong>.</p>
+<p>Now whenever you push changes to the <code>master</code> branch of your package, the  build process will be triggered and your page updated and deployed. <strong>That&#39;s it</strong>.</p>
 <p><strong>Avoiding clashes with Documenter.jl</strong>: if you already use <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> you might want your page to be deployed in a specific folder of <code>gh-pages</code> as Documenter also generates files in <code>gh-pages</code>.</p>
 <div class="alert alert-info" role="alert">
- This will typically not be necessary as the names created by PkgPage and Documenter don&#39;t clash, but you might still prefer to avoid mixing the two &#40;in which case, read on&#41;. </div>
+This will typically not be necessary as the names created by PkgPage and Documenter don&#39;t clash, but you might still prefer to avoid mixing the two &#40;in which case, read on&#41;.</div>
 <p>you can do so in two steps:</p>
 <ol>
 <li><p>change the <code>run</code> part of <code>DeployPage.yml</code> by specifying the <code>output</code> keyword argument  in <code>PkgPage.optimize</code> for instance: <code>PkgPage.optimize&#40;input&#61;&quot;page&quot;, output&#61;&quot;page&quot;&#41;</code>,</p>
@@ -422,11 +388,10 @@ run(<span class="hljs-string">`<span class="hljs-subst">$(npm_cmd()</span>) inst
 <li><p>place the content of <code>page/__site</code> wherever your server requires it.</p>
 </li>
 </ul>
-      </div>
+<p>      </div>
     </div>
   </div>
 </section>
-
 <footer class="py-5 bg-dark">
   <div class="container">
     <p class="m-0 text-center text-white">&copy; Thibaut Lienart and Zlatan Vasović. Website powered by <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>, <a href="https://github.com/tlienart/PkgPage.jl">PkgPage.jl</a> and the <a href="https://julialang.org">Julia</a> programming language.</p>
