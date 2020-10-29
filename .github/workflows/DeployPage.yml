@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -33,8 +33,7 @@ jobs:
     # `@def prepath = "YourPackage.jl/web"`
     - run: julia -e '
             using Pkg;
-            Pkg.add(["NodeJS", "DataFrames"]);
-            Pkg.add(PackageSpec(url="https://github.com/tlienart/PkgPage.jl"));
+            Pkg.add(["NodeJS", "DataFrames", "PkgPage"]);
             using NodeJS;
             run(`$(npm_cmd()) install highlight.js purgecss`);
             import PkgPage;
