@@ -1,7 +1,7 @@
 name = "PkgPage"
 uuid = "e7214860-93a8-4f22-b43d-bd447d1a2094"
 authors = ["Thibaut Lienart, Zlatan Vasović"]
-version = "0.4.1"
+version = "0.4.2"
 
 [deps]
 CommonMark = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
@@ -11,7 +11,7 @@ NodeJS = "2bd173c7-0d6d-553b-b6af-13a54713934c"
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [compat]
-CommonMark = "0.6"
+CommonMark = "0.6, 0.7"
 Franklin = "0.10"
 FranklinUtils = "0.3"
 NodeJS = "1.1"
