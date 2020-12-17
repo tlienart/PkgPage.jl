@@ -322,12 +322,12 @@ first(df, 3)
 <pre><code class="julia hljs"><span class="hljs-keyword">using</span> DataFrames
 df = DataFrame(A = <span class="hljs-number">1</span>:<span class="hljs-number">4</span>, B = [<span class="hljs-string">&quot;M&quot;</span>, <span class="hljs-string">&quot;F&quot;</span>, <span class="hljs-string">&quot;F&quot;</span>, <span class="hljs-string">&quot;M&quot;</span>])
 first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plaintext hljs">3×2 DataFrame
-│ Row │ A     │ B      │
-│     │ Int64 │ String │
-├─────┼───────┼────────┤
-│ 1   │ 1     │ M      │
-│ 2   │ 2     │ F      │
-│ 3   │ 3     │ F      │</code></pre>
+ Row │ A      B
+     │ Int64  String
+─────┼───────────────
+   1 │     1  M
+   2 │     2  F
+   3 │     3  F</code></pre>
 <p>You can control the indentation and appearance of the output block in the <code>config.md</code> too.</p>
 <p>      </div>
     </div>
