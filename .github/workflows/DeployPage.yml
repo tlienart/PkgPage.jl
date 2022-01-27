@@ -15,7 +15,7 @@ jobs:
       with:
         version: 1.5
     - run: julia --project -e '
-            import Pkg; Pkg.instantiate();
+            import Pkg; Pkg.activate("page/Project.toml"); Pkg.instantiate();
             using NodeJS;
             run(`$(npm_cmd()) install highlight.js purgecss`);
             import PkgPage;
