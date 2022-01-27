@@ -14,8 +14,8 @@ jobs:
       uses: julia-actions/setup-julia@v1
       with:
         version: 1.5
-    - run: julia --project '
-            using NodeJS;
+    - run: julia --project -e '
+            import Pkg; Pkg.instantiate();
             run(`$(npm_cmd()) install highlight.js purgecss`);
             import PkgPage;
             PkgPage.optimize(input="page", output="")'
