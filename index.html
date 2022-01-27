@@ -321,13 +321,10 @@ first&#40;df, 3&#41;
 <p>where <code>:ex</code> is the &quot;named part&quot; &#40;<code>ex</code> being the name, which should be unique on the page&#41;.</p>
 <pre><code class="language-julia">using DataFrames
 df &#61; DataFrame&#40;A &#61; 1:4, B &#61; &#91;&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;&#93;&#41;
-first&#40;df, 3&#41;</code></pre><pre><code class="plaintext code-output">3×2 DataFrame
- Row │ A      B
-     │ Int64  String
-─────┼───────────────
-   1 │     1  M
-   2 │     2  F
-   3 │     3  F</code></pre>
+first&#40;df, 3&#41;</code></pre><pre><code class="plaintext code-output">ArgumentError: Package DataFrames [a93c6f00-e57d-5684-b7b6-d8193f3e46c0] is required but does not seem to be installed:
+ - Run `Pkg.instantiate()` to install all recorded dependencies.
+
+</code></pre>
 <p>You can control the indentation and appearance of the output block in the <code>config.md</code> too.</p>
 <p>      </div>
     </div>
