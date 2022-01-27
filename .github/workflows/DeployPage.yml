@@ -20,9 +20,9 @@ jobs:
             run(`$(npm_cmd()) install highlight.js purgecss`);
             import PkgPage;
             PkgPage.optimize(input="page", output="")'
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+    - run: touch page/__site/.nojekyll
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@releases/v4
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: page/__site
