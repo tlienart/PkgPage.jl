@@ -7,8 +7,8 @@ using NodeJS
 const P = PkgPage
 const F = Franklin
 
-F.newmodule("Utils")
-Base.eval(Main.Utils, quote using PkgPage end)
+m = F.newmodule(F.utils_name())
+m.eval(Meta.parse("using PkgPage"))
 
 include("latex/basic.jl")
 include("latex/environments.jl")
