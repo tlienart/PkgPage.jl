@@ -10,10 +10,10 @@ version = "1.3.0"
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
 [[CommonMark]]
-deps = ["Crayons", "JSON", "URIParser"]
-git-tree-sha1 = "c1f1514d7cc1ad243a103b403d896ee184c91b62"
+deps = ["Crayons", "JSON", "URIs"]
+git-tree-sha1 = "1bb620c8e76625df66585bec1d85c24c9575d230"
 uuid = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
-version = "0.6.4"
+version = "0.7.3"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
@@ -225,9 +225,9 @@ uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [[PkgPage]]
 deps = ["CommonMark", "Franklin", "FranklinUtils", "NodeJS", "Pkg"]
-git-tree-sha1 = "b5358a846c9da1187ca33156a74684396e809a78"
+git-tree-sha1 = "5f3389565a0b72490ebf459eaaa792692faa635a"
 uuid = "e7214860-93a8-4f22-b43d-bd447d1a2094"
-version = "0.4.1"
+version = "0.4.2"
 
 [[PooledArrays]]
 deps = ["DataAPI", "Future"]
@@ -312,12 +312,6 @@ version = "1.6.1"
 [[Test]]
 deps = ["Distributed", "InteractiveUtils", "Logging", "Random"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-
-[[URIParser]]
-deps = ["Unicode"]
-git-tree-sha1 = "53a9f49546b8d2dd2e688d216421d050c9a31d0d"
-uuid = "30578b45-9adc-5946-b283-645ec420af67"
-version = "0.4.1"
 
 [[URIs]]
 git-tree-sha1 = "97bbe755a53fe859669cd907f2d96aee8d2c1355"
