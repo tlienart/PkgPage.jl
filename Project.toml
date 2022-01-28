@@ -1,7 +1,7 @@
 name = "PkgPage"
 uuid = "e7214860-93a8-4f22-b43d-bd447d1a2094"
 authors = ["Thibaut Lienart, Zlatan Vasović"]
-version = "0.4.2"
+version = "0.4.3"
 
 [deps]
 CommonMark = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
