@@ -45,7 +45,7 @@ function newpage(; path="page", overwrite=false)
     # Try placing the `.gitattributes`
     name = ".gitattributes"
     src = joinpath(store, name)
-    dst = name
+    dst = joinpath(path, name)
     cp(src, dst, force=overwrite)
     chmod(dst, 0o644)
 
