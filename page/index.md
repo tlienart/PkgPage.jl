@@ -96,7 +96,10 @@ where `path` is a valid path to the image (e.g. `/assets/image.png`) and the oth
 * `style="..."` to add any specific CSS styling to the image (e.g. `border-radius:5px`).
 
 \begin{center}
-  \figure{path="/assets/nice_image.jpg", width="100%", style="border-radius:5px;", caption="Panoramic view of the Tara Cathedrals (taken from Wikimedia)."}
+  \figure{
+    path="/assets/nice_image.jpg", width="100%", style="border-radius:5px;",
+    caption=raw"Panoramic view of the Tara Cathedrals (taken from Wikimedia). <br>(Note: maths can be used in caption but between brackets: \(x^2\sin(\mu)\))."
+  }
 \end{center}
 
 \label{com-tables}
