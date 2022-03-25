@@ -95,6 +95,8 @@ where `path` is a valid path to the image (e.g. `/assets/image.png`) and the oth
 * `caption="..."` to specify the figure caption if any,
 * `style="..."` to add any specific CSS styling to the image (e.g. `border-radius:5px`).
 
+**Note**: `alt` and `caption` are passed as HTML strings so, for instance, if you want a line break you will need to use `<br>` or if you want maths in the caption you will need to put it between escaped brackets `\(x^2\sin(\mu)\)` instead of `$`.
+
 \begin{center}
   \figure{
     path="/assets/nice_image.jpg", width="100%", style="border-radius:5px;",
